@@ -1,8 +1,8 @@
 class GameEngine {
 	// These attributes need to be started by a file ... uncomment when the game can read json files
-	var game: Game?
+	var game: Game!
 	var radio_messages: [String]
-	var inventory: Inventory?
+	var inventory: Inventory!
 
 	init(){
 		// initialized class.. without that we can't call any methods
@@ -19,7 +19,7 @@ class GameEngine {
 
 	func use_radio(){
 		// Show the radio message for the current scene
-		// print(self.radio_messages[game.get_current_scene()])
+		print(self.radio_messages[self.game.get_current_scene()])
 	}
 
 	func init_game_from_file() -> Game {
