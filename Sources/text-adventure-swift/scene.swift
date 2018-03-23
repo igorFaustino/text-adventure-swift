@@ -11,4 +11,9 @@ class Scene {
 		self.descricao = descricao
 		self.itens = itens
 	}
+
+	func print_scene(){
+		print(self.titulo)
+		print(self.descricao)
+	}
 }

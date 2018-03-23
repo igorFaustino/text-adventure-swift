@@ -68,7 +68,7 @@ class Item{
         return self.resolved
     }
 
-    func get_key() -> Int {
+    func get_key() -> Bool {
         return self.key
     }
     
