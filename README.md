@@ -21,5 +21,5 @@ $ swift build
 now, run the following command to execute:
 
 ```linux
-$ ./build/debug/text-adventure-swift
+$ ./.build/debug/text-adventure-swift
 ```
