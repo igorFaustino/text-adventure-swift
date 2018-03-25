@@ -3,9 +3,9 @@ class Item{
     var id : Int // id for identify in the Save
     var name: String
     var description: String
-    var negative_result: String
-    var positive_result: String
-    var scene : Int
+    var negativeResult: String
+    var positiveResult: String
+    var targetScene : Int // scene to go when use the item
     var stocked: Bool
     var resolved: Bool
     var key: Bool // key for puzzle
@@ -14,9 +14,9 @@ class Item{
     init(   id : Int,
             name: String,
             description: String,
-            negative_result: String,
-            positive_result: String,
-            scene : Int,
+            negativeResult: String,
+            positiveResult: String,
+            targetScene : Int,
             stocked: Bool,
             resolved: Bool,
             key: Bool, 
@@ -25,9 +25,9 @@ class Item{
         self.id = id
         self.name = name
         self.description = description
-        self.negative_result = negative_result
-        self.positive_result = positive_result
-        self.scene = scene
+        self.negativeResult = negativeResult
+        self.positiveResult = positiveResult
+        self.targetScene = targetScene
         self.stocked = stocked
         self.resolved = resolved
         self.key = key
@@ -36,53 +36,53 @@ class Item{
 
     //Gets
 
-    func get_id() -> Int {
+    func getId() -> Int {
         return self.id
     }
 
-    func get_name() -> String {
+    func getName() -> String {
         return self.name
     }
 
-    func get_description() -> String {
+    func getDescription() -> String {
         return self.description
     }
 
-    func get_negative_result() -> String {
-        return self.negative_result
+    func getNegativeResult() -> String {
+        return self.negativeResult
     }
 
-    func get_positive_result() -> String {
-        return self.positive_result
+    func getPositiveResult() -> String {
+        return self.positiveResult
     }
 
-    func get_scene() -> Int {
-        return self.scene
+    func getTargetScene() -> Int {
+        return self.targetScene
     }
 
-     func get_stocked() -> Bool {
+     func getStocked() -> Bool {
         return self.stocked
     }
 
-    func get_resolved() -> Bool {
+    func getResolved() -> Bool {
         return self.resolved
     }
 
-    func get_key() -> Bool {
+    func getKey() -> Bool {
         return self.key
     }
     
-    func get_command() -> String {
+    func getCommand() -> String {
         return self.command
     }
 
     //Sets
 
-     func set_stocked( state: Bool){
+     func setStocked( state: Bool){
         self.stocked = state
     }
 
-    func set_resolved( state: Bool){
+    func setResolved( state: Bool){
         self.resolved = state
     }
 }

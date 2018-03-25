@@ -1,25 +1,25 @@
 class Game {
 	let scenes: [Scene]
-	var current_scene: Int
+	var currentScene: Int
 
-	init(current_scene: Int, scenes: [Scene]){
+	init(currentScene: Int, scenes: [Scene]){
 		self.scenes = scenes
-		self.current_scene = current_scene
+		self.currentScene = currentScene
 	}
 
-	func get_scene() -> Scene {
-		return self.scenes[self.current_scene]
+	func getScene() -> Scene {
+		return self.scenes[self.currentScene]
 	}
 
-	func set_current_scene(value: Int) {
-		self.current_scene = value
+	func setCurrentScene(value: Int) {
+		self.currentScene = value
 	}
 
-	func print_scene() {
-		self.scenes[self.current_scene].print_scene()
+	func printScene() {
+		self.scenes[self.currentScene].printScene()
 	}
 
-	func get_current_scene() -> Int{
-		return self.current_scene
+	func getCurrentScene() -> Int{
+		return self.currentScene
 	}
 }

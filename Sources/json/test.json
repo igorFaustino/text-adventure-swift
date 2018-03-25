@@ -1,3 +1,28 @@
 {
-	"name": "Testerson"
+	"radio_messages" : [
+		"boa garoto",
+		"oh shit",
+		"teste"
+	],
+	"scenes": [
+		{
+			"id": 1,
+			"title": "cena 1",
+			"description": "primeira cena",
+			"itens": [
+				{
+					"id": 1,
+					"name": "item",
+					"description": "item qualquer",
+					"negativeResult": "deu ruim",
+					"positiveResult": "yaay",
+					"targetScene": 1,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": "use item"
+				}
+			]
+		}
+	]
 }

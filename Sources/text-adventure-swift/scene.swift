@@ -1,19 +1,19 @@
 class Scene {
 
 	let id: Int
-	let titulo: String
-	let descricao: String
+	let title: String
+	let description: String
 	let itens: [Item] // trocar string por um array de objetos
 
-	init(id: Int, titulo: String, descricao: String, itens: [Item]){
+	init(id: Int, title: String, description: String, itens: [Item]){
 		self.id = id
-		self.titulo = titulo
-		self.descricao = descricao
+		self.title = title
+		self.description = description
 		self.itens = itens
 	}
 
-	func print_scene(){
-		print(self.titulo)
-		print(self.descricao)
+	func printScene(){
+		print(self.title)
+		print(self.description)
 	}
 }
