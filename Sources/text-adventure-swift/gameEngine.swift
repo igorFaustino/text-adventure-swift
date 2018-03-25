@@ -1,11 +1,20 @@
+import Foundation // FileHandle
+import SwiftyJSON // work with json
+
 class GameEngine {
 	// These attributes need to be started by a file ... uncomment when the game can read json files
+	var file: FileHandle!
+	var data: Data
+	var json: JSON
 	var game: Game!
 	var radio_messages: [String]
 	var inventory: Inventory!
 
-	init(){
+	init(filePath: String){
 		// initialized class.. without that we can't call any methods
+		self.file = FileHandle(forReadingAtPath: filePath)
+		self.data = self.file!.readDataToEndOfFile()
+		self.json = JSON(data: self.data)
 		self.game = nil
 		self.inventory = nil
 		self.radio_messages = []
@@ -15,6 +24,7 @@ class GameEngine {
 		self.game = init_game_from_file()
 		self.radio_messages = init_radio_messages_from_file()
 		self.inventory = init_inventory_from_file()
+
 	}
 
 	func use_radio(){
