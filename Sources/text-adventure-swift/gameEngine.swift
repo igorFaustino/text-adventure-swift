@@ -7,7 +7,7 @@ class GameEngine {
 	var data: Data
 	var json: JSON
 	var game: Game!
-	var radio_messages: [String]
+	var radioMessages: [String]
 	var inventory: Inventory!
 
 	init(filePath: String){
@@ -16,35 +16,60 @@ class GameEngine {
 		self.data = self.file!.readDataToEndOfFile()
 		self.json = JSON(data: self.data)
 		self.game = nil
-		self.inventory = nil
-		self.radio_messages = []
+		self.inventory = Inventory(vectorItens: [])
+		self.radioMessages = []
 
 		// call methods to read a file and put the data insite the attributes
 
-		self.game = init_game_from_file()
-		self.radio_messages = init_radio_messages_from_file()
-		self.inventory = init_inventory_from_file()
-
+		self.game = initGameFromFile()
+		self.radioMessages = initRadioMessagesFromFile()
 	}
 
-	func use_radio(){
+	func useRadio(){
 		// Show the radio message for the current scene
-		print(self.radio_messages[self.game.get_current_scene()])
+		print(self.radioMessages[self.game.getCurrentScene()])
 	}
 
-	func init_game_from_file() -> Game {
-		// work in progress..		
-		return Game(current_scene: 0, scenes: [])
-	}
-
-	func init_radio_messages_from_file() -> [String] {
+	func initGameFromFile() -> Game {
 		// work in progress..
-		return []
+		var scenes : [Scene] = []
+
+		// get all scene from a vector of scene
+		for (_, scene):(String, JSON) in self.json["scenes"] {
+			var itens: [Item] = []
+			// inside a scene get all the itens
+			for (_, item):(String, JSON) in scene["itens"] {
+				itens.append(Item(
+						id: item["id"].int!,
+						name: item["name"].string!,
+						description: item["description"].string!,
+						negativeResult: item["negativeResult"].string!,
+						positiveResult: item["positiveResult"].string!,
+						targetScene: item["targetScene"].int!,
+						stocked: item["stocked"].bool!,
+						resolved: item["resolved"].bool!,
+            			key: item["key"].bool!, 
+            			command: item["command"].string!
+					)
+				)
+			}
+
+			scenes.append(Scene(
+				id: scene["id"].int!,
+				title: scene["title"].string!,
+				description: scene["description"].string!,
+				itens: itens
+			))
+		}
+		return Game(currentScene: 0, scenes: scenes)
 	}
 
-	func init_inventory_from_file() -> Inventory {
+	func initRadioMessagesFromFile() -> [String] {
 		// work in progress..
-		let vector_itens = [Item(id: 1, name: "test", description: "blabla", negative_result: "oh sorry", positive_result: "yaay", scene: 1, stocked: true, resolved: false, key: false, command: "use test with rock")]
-		return Inventory(vector_itens: vector_itens)
+		var radioMessages: [String] = []
+		for (_, radioMessagesItem):(String, JSON) in self.json["radio_messages"] {
+			radioMessages.append(radioMessagesItem.string!)
+		}
+		return radioMessages
 	}
 }
