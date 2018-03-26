@@ -1,8 +1,12 @@
 class Game {
+	let gameTitle: String
+	let gameDescription: String
 	let scenes: [Scene]
 	var currentScene: Int
 
-	init(currentScene: Int, scenes: [Scene]){
+	init(gameTitle: String, gameDescription: String, currentScene: Int, scenes: [Scene]){
+		self.gameTitle = gameTitle
+		self.gameDescription = gameDescription
 		self.scenes = scenes
 		self.currentScene = currentScene
 	}
@@ -21,5 +25,13 @@ class Game {
 
 	func getCurrentScene() -> Int{
 		return self.currentScene
+	}
+
+	func printGameTitle() {
+		print(self.gameTitle)
+	}
+
+	func printGameDescription() {
+		print(self.gameDescription)
 	}
 }
