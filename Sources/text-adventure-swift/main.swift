@@ -1,39 +1,70 @@
 import Foundation
+import Rainbow
 
-// clear all the text in the bash
-system("clear")
-
-var typeWriter = TypeWriter()
-
-// you need to pass the whole path to the file
-let myGame = GameEngine(filePath: "/home/igor/Documents/code/faculdade/5_periodo/lp/text-adventure-swift/Sources/json/test.json")
-
-myGame.printGameDescription()
-// sleep(1)
-
-var repeatMenu = true
-while(repeatMenu) {
-	repeatMenu = false
-	typeWriter.typeOn(string: "O que dejesa fazer?")
+func menu(game: GameEngine) -> Bool{
+	print("\nO que dejesa fazer?")
 	
 	print("newgame")
 	print("load")
 	print("help")
 	print("exit")
-	print(">", terminator: " ")
+	print(" >".red, terminator: " ")
 	let command = readLine()
+	print("\n")
 
 	if (command == "newgame") {
 		print("newgame")
 	} else if (command == "load") {
 		print("load")
 	} else if (command == "help") {
-		print("help")
+		game.printHelp()
+		return true
 	} else if (command == "exit"){
-		exit(0)
+		game.gameExit()
 	} else {
 		print("Não entendi o que vc está querendo fazer..\n")
-		sleep(1)
-		repeatMenu = true
+		return true
 	}
+
+	return false
 }
+
+func gameMain(){
+	var gameRunning = true
+
+	while(true){
+		// clear all the text in the bash
+		system("clear")
+
+		// you need to pass the whole path to the file
+		let myGame = GameEngine(filePath: "/home/igor/Documents/code/faculdade/5_periodo/lp/text-adventure-swift/Sources/json/test.json")
+
+		// print game info
+		myGame.printGameTitle()
+		myGame.printGameDescription()
+
+		// main menu
+		var repeatMenu = true
+		while(repeatMenu) {
+			repeatMenu = menu(game: myGame)
+		}
+
+		var currentScene: Int? = nil
+		while(gameRunning){
+			if (myGame.getCurrentScene() != currentScene){
+				myGame.printScene()
+				currentScene = myGame.getCurrentScene()
+			}
+		
+			print(" >".red, terminator: " ")
+			let command : String! = readLine()
+			print("\n")
+			gameRunning = myGame.processCommand(command: command)
+		
+		}
+
+	}
+
+}
+
+gameMain()
