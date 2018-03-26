@@ -30,7 +30,6 @@ func menu(game: GameEngine) -> Bool{
 }
 
 func gameMain(){
-	var gameRunning = true
 
 	while(true){
 		// clear all the text in the bash
@@ -44,6 +43,7 @@ func gameMain(){
 		myGame.printGameDescription()
 
 		// main menu
+		var gameRunning = true
 		var repeatMenu = true
 		while(repeatMenu) {
 			repeatMenu = menu(game: myGame)

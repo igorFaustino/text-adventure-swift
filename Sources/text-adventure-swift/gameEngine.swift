@@ -131,7 +131,7 @@ class GameEngine {
 			} else if (negativeAnswer(answer: answer!)) {
 				return true
 			}
-		} else is(command == "save"){
+		} else if(command == "save"){
 			// do the save stuff here
 		}else if (command == "use radio"){
 			useRadio()
