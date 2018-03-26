@@ -1,9 +1,12 @@
 {
-	"radio_messages" : [
+	"gameTitle": "---------------------------\n----- My Awesome Game -----\n---------------------------\n",
+	"gameDescription": "Descrição detalhada e bla bla bla",
+	"radioMessages" : [
 		"boa garoto",
 		"oh shit",
 		"teste"
 	],
+	"help": "Ajuda\nDescrição do jogo\ncomandos",
 	"scenes": [
 		{
 			"id": 1,
