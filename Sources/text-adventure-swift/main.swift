@@ -2,7 +2,7 @@ import Foundation
 import Rainbow
 
 func menu(game: GameEngine) -> Bool{
-	print("\nO que dejesa fazer?")
+	print("\nEscolha uma opção?")
 	
 	print("newgame")
 	print("load")
@@ -10,7 +10,7 @@ func menu(game: GameEngine) -> Bool{
 	print("exit")
 	print(" >".red, terminator: " ")
 	let command = readLine()
-	print("\n")
+	// print("\n")
 
 	if (command == "newgame") {
 		print("newgame")
@@ -22,7 +22,7 @@ func menu(game: GameEngine) -> Bool{
 	} else if (command == "exit"){
 		game.gameExit()
 	} else {
-		print("Não entendi o que vc está querendo fazer..\n")
+		print("\nNão entendi o que vc está querendo fazer..")
 		return true
 	}
 
@@ -58,7 +58,7 @@ func gameMain(){
 		
 			print(" >".red, terminator: " ")
 			let command : String! = readLine()
-			print("\n")
+			// print("\n", terminator: "")
 			gameRunning = myGame.processCommand(command: command)
 		
 		}
