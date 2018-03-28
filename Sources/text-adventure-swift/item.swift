@@ -25,7 +25,7 @@ class Item{
         self.id = id
         self.name = name
         self.description = description
-        self.negativeResult = ne-gativeResult
+        self.negativeResult = negativeResult
         self.positiveResult = positiveResult
         self.targetScene = targetScene
         self.stocked = stocked
