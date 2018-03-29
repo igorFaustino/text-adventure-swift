@@ -16,4 +16,14 @@ class Scene {
 		print(self.title)
 		print(self.description)
 	}
+
+	func searchItemScene(name: String) -> Item! {
+        for item in self.itens {
+            if((item.name == name){
+                return item
+            }
+        }
+        return nil
+    }
+
 }

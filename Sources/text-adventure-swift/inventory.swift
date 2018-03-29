@@ -10,17 +10,15 @@ class Inventory{
     }
 
     func printInventory(){
-        for item in self.vectorItens{
-            if item.stocked == true{
+        for item in self.vectorItens {
                 print("\nNome: \(item.name)")
                 print("Descriçao: \(item.description)")
-            }
         }
     }
 
     func searchItem(name: String) -> Item! {
         for item in self.vectorItens {
-            if((item.stocked == true) && (item.name == name)){
+            if (item.name == name){
                 return item
             }
         }
@@ -28,7 +26,7 @@ class Inventory{
     }
 
     func deleteItem(name: String){
-       if(searchItem(name: name) != nil){
+       if (searchItem(name: name) != nil){
             self.vectorItens = self.vectorItens.filter{ $0.name != name}
        }
     }

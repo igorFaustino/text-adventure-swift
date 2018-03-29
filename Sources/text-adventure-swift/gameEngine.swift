@@ -147,6 +147,33 @@ class GameEngine {
 	func gameExit(){
 		exit(0)
 	}
+
+	func check(command: String){
+        let commandItem = command.lowercased()
+        let tokenCommand = commandItem.split(separator: " ")
+        
+        for token in tokenCommand {
+            if (searchItem(name: String(token)) != nil){
+                let item = searchItem(name: String(token))
+                
+                if (item!.command.lowercased() == command.lowercased()){
+                    return print(item!.description)
+                }else {
+                    return print(item!.negativeResult)
+                }         
+            }else if (searchItemScene(name: String(token)) != nil){
+                	let item = searchItemScene(name: String(token))
+                
+						if (item!.command.lowercased() == command.lowercased()){
+							return print(item!.description)
+						}else{
+							return print(item!.negativeResult)
+						}
+			}
+
+        }
+         return print("Item não encontrado")
+    }
 }
 
 func afirmativeAnswer(answer: String) -> Bool {
