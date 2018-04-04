@@ -10,6 +10,7 @@ class GameEngine {
 	var radioMessages: [String]
 	var inventory: Inventory!
 	var help: String
+	var gameOver: String
 
 	init(filePath: String){
 		// initialized class.. without that we can't call any methods
@@ -20,6 +21,7 @@ class GameEngine {
 		self.inventory = Inventory(vectorItens: [])
 		self.radioMessages = []
 		self.help = self.json["help"].string!
+		self.gameOver = self.json["gameOver"].string!
 
 		// call methods to read a file and put the data insite the attributes
 
@@ -144,7 +146,12 @@ class GameEngine {
 		self.game.printScene()
 	}
 
+	func printGameOver(){
+		print(self.gameOver)
+	}
+
 	func gameExit(){
+		system("clear")
 		exit(0)
 	}
 }
