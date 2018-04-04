@@ -36,7 +36,7 @@ func gameMain(){
 		system("clear")
 
 		// you need to pass the whole path to the file
-		let myGame = GameEngine(filePath: "/home/igor/Documents/code/faculdade/5_periodo/lp/text-adventure-swift/Sources/json/test.json")
+		let myGame = GameEngine(filePath: "/home/neos/Documentos/Projetos/text-adventure-swift/Sources/json/test.json")
 
 		// print game info
 		myGame.printGameTitle()

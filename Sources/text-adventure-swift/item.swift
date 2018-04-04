@@ -60,7 +60,7 @@ class Item{
         return self.targetScene
     }
 
-     func getStocked() -> Bool {
+    func getStocked() -> Bool {
         return self.stocked
     }
 
@@ -78,11 +78,11 @@ class Item{
 
     //Sets
 
-     func setStocked( state: Bool){
+     func setStocked(state: Bool){
         self.stocked = state
     }
 
-    func setResolved( state: Bool){
+    func setResolved(state: Bool){
         self.resolved = state
     }
 }
