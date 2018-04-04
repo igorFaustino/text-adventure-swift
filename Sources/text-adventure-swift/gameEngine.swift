@@ -137,6 +137,8 @@ class GameEngine {
 			// do the save stuff here
 		}else if (command == "use radio"){
 			useRadio()
+		} else if (command.range(of: "check") != nil){
+			checkItem(command: command)
 		}
 
 		return true
@@ -155,31 +157,24 @@ class GameEngine {
 		exit(0)
 	}
 
-	func check(command: String){
-        let commandItem = command.lowercased()
-        let tokenCommand = commandItem.split(separator: " ")
-        
-        for token in tokenCommand {
-            if (searchItem(name: String(token)) != nil){
-                let item = searchItem(name: String(token))
-                
-                if (item!.command.lowercased() == command.lowercased()){
-                    return print(item!.description)
-                }else {
-                    return print(item!.negativeResult)
-                }         
-            }else if (searchItemScene(name: String(token)) != nil){
-                	let item = searchItemScene(name: String(token))
-                
-						if (item!.command.lowercased() == command.lowercased()){
-							return print(item!.description)
-						}else{
-							return print(item!.negativeResult)
-						}
-			}
-
-        }
-         return print("Item não encontrado")
+	// check item
+	func checkItem(command: String){
+		let commandSplit = command.split(separator:" ")
+		if(commandSplit.count < 2){
+        	print("Não entendi o que você quis dizer...")
+			return
+		}
+		let item = commandSplit[1]
+		let itemFromInventary = inventory.searchItem(name: String(item))
+		let itemFromScene = game.getScene().searchItemScene(name: String(item))
+        if(itemFromInventary != nil){
+			print(itemFromInventary!.getDescription())
+		} else if(itemFromScene != nil){
+			print(itemFromScene!.getDescription())
+		} else {
+        	print("Não entendi o que você quis dizer...")
+			return
+		}
     }
 }
 

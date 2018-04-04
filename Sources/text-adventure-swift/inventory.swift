@@ -18,7 +18,7 @@ class Inventory{
 
     func searchItem(name: String) -> Item! {
         for item in self.vectorItens {
-            if (item.name == name){
+            if (item.getName() == name){
                 return item
             }
         }

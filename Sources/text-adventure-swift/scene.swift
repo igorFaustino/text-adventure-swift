@@ -19,7 +19,7 @@ class Scene {
 
 	func searchItemScene(name: String) -> Item! {
         for item in self.itens {
-            if((item.name == name){
+            if(item.getName() == name){
                 return item
             }
         }
