@@ -176,6 +176,34 @@ class GameEngine {
 			return
 		}
     }
+
+	func getItem(command: String){
+		let commandSplit = command.split(separator:" ")
+		if(commandSplit.count < 2){
+        	print("Não entendi o que você quis dizer...")
+			return
+		}
+		let item = commandSplit[1]
+		let itemFromScene = game.getScene().searchItemScene(name: String(item))
+		if(itemFromScene != nil){
+			// TODO: Change function name
+			if(itemFromScene.getInventoryObject()){
+				if(!itemFromScene.getStocked()){
+					itemFromScene.setStocked(state: true)
+					inventory.addItem(item: itemFromScene)
+				} else {
+					print("Esse item já está comigo")
+					return					
+				}
+			} else {
+				print("Eu não acho que consigo fazer isso...")
+				return
+			}
+		} else {
+        	print("Não entendi o que você quis dizer...")
+			return
+		}
+	}
 }
 
 func afirmativeAnswer(answer: String) -> Bool {

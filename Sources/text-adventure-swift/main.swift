@@ -2,7 +2,7 @@ import Foundation
 import Rainbow
 
 func menu(game: GameEngine) -> Bool{
-	print("\nEscolha uma opção?")
+	print("\nEscolha uma opção")
 	
 	print("newgame")
 	print("load")
