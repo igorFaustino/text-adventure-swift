@@ -9,9 +9,30 @@
 	"help": "Ajuda\nDescrição do jogo\ncomandos",
 	"scenes": [
 		{
-			"id": 1,
+			"id": 0,
 			"title": "cena 1",
 			"description": "primeira cena",
+			"itens": [
+				{
+					"id": 1,
+					"name": "item",
+					"description": "item qualquer",
+					"negativeResult": "deu ruim",
+					"positiveResult": "yaay",
+					"targetScene": 1,
+					"isInventoryItem": true,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": "use item"
+				}
+			],
+			"isEndGame": false
+		},
+		{
+			"id": 1,
+			"title": "cena 2",
+			"description": "segunda cena",
 			"itens": [
 				{
 					"id": 1,

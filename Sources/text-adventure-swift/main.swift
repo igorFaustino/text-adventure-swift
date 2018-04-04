@@ -15,7 +15,11 @@ func menu(game: GameEngine) -> Bool{
 	if (command == "newgame") {
 		print("newgame")
 	} else if (command == "load") {
-		print("load")
+		print("Digite o nome do save..")
+		print(" >".red, terminator: " ")
+		let command : String! = readLine()
+		let path = URL(fileURLWithPath: "./Sources/json/saves/" + command + ".json").path
+		game.loadGame(filePath: path)
 	} else if (command == "help") {
 		game.printHelp()
 		return true
@@ -36,8 +40,8 @@ func gameMain(){
 		system("clear")
 
 		// you need to pass the whole path to the file -> this is bad!!
-		// TODO: relative path
-		let myGame = GameEngine(filePath: "/home/igor/Documents/code/faculdade/5_periodo/lp/text-adventure-swift/Sources/json/test.json")
+		let path = URL(fileURLWithPath: "./Sources/json/test.json").path
+		let myGame = GameEngine(filePath: path)
 
 		// print game info
 		myGame.printGameTitle()
@@ -53,6 +57,8 @@ func gameMain(){
 		var currentScene: Int? = nil
 		while(gameRunning){
 			if(myGame.getCurrentScene() != currentScene){
+				print("\n[Digite enter para continuar]")
+				_ = readLine()
 				system("clear")
 				sleep(1)
 				myGame.printScene()

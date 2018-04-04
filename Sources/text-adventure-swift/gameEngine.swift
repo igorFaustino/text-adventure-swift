@@ -77,11 +77,11 @@ class GameEngine {
 	func loadGame(filePath: String) {
 		// TODO: Test this function
 		let loadGameFile: FileHandle! = FileHandle(forReadingAtPath: filePath)
-		let loadGameData: Data = file!.readDataToEndOfFile()
+		let loadGameData: Data = loadGameFile!.readDataToEndOfFile()
 		let loadGameJson: JSON = JSON(data: loadGameData)
 
-		for(_, itens:(String, JSON) in loadGameJson["inventory"]){
-			self.inventory.addItem(Item(
+		for (_, item):(String, JSON) in loadGameJson["inventory"] {
+			self.inventory.addItem(item: Item(
 				id: item["id"].int!,
 				name: item["name"].string!,
 				description: item["description"].string!,
@@ -95,7 +95,7 @@ class GameEngine {
 				command: item["command"].string!
 			))
 		}
-		self.game.setCurrentScene(loadGameJson["currentScene"].int!)
+		self.game.setCurrentScene(value: loadGameJson["currentScene"].int!)
 	}
 
 	// TODO: work in this!
