@@ -19,13 +19,15 @@
 					"description": "item qualquer",
 					"negativeResult": "deu ruim",
 					"positiveResult": "yaay",
-					"targetScene": 1,
+					"targetScene": 0,
+					"isInventoryItem": true,
 					"stocked": false,
 					"resolved": false,
 					"key": false,
 					"command": "use item"
 				}
-			]
+			],
+			"isEndGame": false
 		}
 	],
 	"gameOver": "Vc Morreu"

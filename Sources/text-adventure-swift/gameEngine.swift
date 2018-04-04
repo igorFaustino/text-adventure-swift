@@ -35,7 +35,6 @@ class GameEngine {
 	}
 
 	func initGameFromFile() -> Game {
-		// work in progress..
 		var scenes : [Scene] = []
 
 		// get all scene from a vector of scene
@@ -51,6 +50,7 @@ class GameEngine {
 						positiveResult: item["positiveResult"].string!,
 						targetScene: item["targetScene"].int!,
 						stocked: item["stocked"].bool!,
+						isInventoryItem: item["isInventoryItem"].bool!,
 						resolved: item["resolved"].bool!,
             			key: item["key"].bool!, 
             			command: item["command"].string!
@@ -62,7 +62,8 @@ class GameEngine {
 				id: scene["id"].int!,
 				title: scene["title"].string!,
 				description: scene["description"].string!,
-				itens: itens
+				itens: itens,
+				endGame: scene["isEndGame"].bool!
 			))
 		}
 		return Game(
@@ -71,6 +72,35 @@ class GameEngine {
 			currentScene: 0,
 			scenes: scenes
 		)
+	}
+
+	func loadGame(filePath: String) {
+		// TODO: Test this function
+		let loadGameFile: FileHandle! = FileHandle(forReadingAtPath: filePath)
+		let loadGameData: Data = file!.readDataToEndOfFile()
+		let loadGameJson: JSON = JSON(data: loadGameData)
+
+		for(_, itens:(String, JSON) in loadGameJson["inventory"]){
+			self.inventory.addItem(Item(
+				id: item["id"].int!,
+				name: item["name"].string!,
+				description: item["description"].string!,
+				negativeResult: item["negativeResult"].string!,
+				positiveResult: item["positiveResult"].string!,
+				targetScene: item["targetScene"].int!,
+				stocked: item["stocked"].bool!,
+				isInventoryItem: item["isInventoryItem"].bool!,
+				resolved: item["resolved"].bool!,
+				key: item["key"].bool!, 
+				command: item["command"].string!
+			))
+		}
+		self.game.setCurrentScene(loadGameJson["currentScene"].int!)
+	}
+
+	// TODO: work in this!
+	func saveGame(filePath: String) {
+
 	}
 
 	func getCurrentScene() -> Int {
@@ -135,10 +165,20 @@ class GameEngine {
 			}
 		} else if(command == "save"){
 			// do the save stuff here
-		}else if (command == "use radio"){
+		} else if (command == "use radio"){
 			useRadio()
+		} else if (command == "inventory"){
+			inventory.printInventory()
 		} else if (command.range(of: "check") != nil){
 			checkItem(command: command)
+		} else if (command.range(of: "get") != nil){
+			getItem(command: command)
+		} else if (command.range(of: "use") != nil && command.range(of: "with") == nil){
+			useItem(command: command)
+		} else if (command.range(of: "use") != nil && command.range(of: "with") != nil){
+			useItemWith(command: command)
+		} else {
+			print("Não entendi o que voce quis dizer...")
 		}
 
 		return true
@@ -150,6 +190,10 @@ class GameEngine {
 
 	func printGameOver(){
 		print(self.gameOver)
+	}
+
+	func isEndGame() -> Bool {
+		return self.game.getScene().isEndGame()
 	}
 
 	func gameExit(){
@@ -187,16 +231,64 @@ class GameEngine {
 		let itemFromScene = game.getScene().searchItemScene(name: String(item))
 		if(itemFromScene != nil){
 			// TODO: Change function name
-			if(itemFromScene.getInventoryObject()){
-				if(!itemFromScene.getStocked()){
-					itemFromScene.setStocked(state: true)
-					inventory.addItem(item: itemFromScene)
+			if(itemFromScene!.getIsInventoryItem()){
+				if(!itemFromScene!.getStocked()){
+					itemFromScene!.setStocked(state: true)
+					inventory.addItem(item: itemFromScene!)
+					print("O item foi adicionado ao inventario")
 				} else {
 					print("Esse item já está comigo")
 					return					
 				}
 			} else {
 				print("Eu não acho que consigo fazer isso...")
+				return
+			}
+		} else {
+        	print("Não entendi o que você quis dizer...")
+			return
+		}
+	}
+
+	func useItemWith(command: String){
+		let commandSplit = command.split(separator:" ")
+		if(commandSplit.count < 2){
+        	print("Não entendi o que você quis dizer...")
+			return
+		}
+
+		let itemInInventory = commandSplit[1]
+		let itemInScene = commandSplit[3]
+		let itemFromInventary = inventory.searchItem(name: String(itemInInventory))
+		let itemFromScene = game.getScene().searchItemScene(name: String(itemInScene))
+		if(itemFromScene != nil && itemFromInventary != nil){
+			if(itemFromScene!.getCommand() == command){
+				print(itemFromScene!.getPositiveResult())
+				game.setCurrentScene(value: itemFromScene!.getTargetScene())
+			} else {
+				print(itemFromScene!.getNegativeResult())
+				return
+			}
+		} else {
+        	print("Não entendi o que você quis dizer...")
+			return
+		}
+	}
+
+	func useItem(command: String){
+		let commandSplit = command.split(separator:" ")
+		if(commandSplit.count < 2){
+        	print("Não entendi o que você quis dizer...")
+			return
+		}
+		let item = commandSplit[1]
+		let itemFromScene = game.getScene().searchItemScene(name: String(item))
+		if(itemFromScene != nil){
+			if(itemFromScene!.getCommand() == command){
+				print(itemFromScene!.getPositiveResult())
+				game.setCurrentScene(value: itemFromScene!.getTargetScene())
+			} else {
+				print(itemFromScene!.getNegativeResult())
 				return
 			}
 		} else {

@@ -11,14 +11,14 @@ class Inventory{
 
     func printInventory(){
         for item in self.vectorItens {
-                print("\nNome: \(item.name)")
-                print("Descriçao: \(item.description)")
+            print("\(item.name)", terminator:" ")
         }
+        print("")
     }
 
     func searchItem(name: String) -> Item! {
         for item in self.vectorItens {
-            if (item.getName() == name){
+            if (item.getName().lowercased() == name.lowercased()){
                 return item
             }
         }

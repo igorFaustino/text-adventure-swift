@@ -35,7 +35,8 @@ func gameMain(){
 		// clear all the text in the bash
 		system("clear")
 
-		// you need to pass the whole path to the file
+		// you need to pass the whole path to the file -> this is bad!!
+		// TODO: relative path
 		let myGame = GameEngine(filePath: "/home/igor/Documents/code/faculdade/5_periodo/lp/text-adventure-swift/Sources/json/test.json")
 
 		// print game info
@@ -51,15 +52,26 @@ func gameMain(){
 
 		var currentScene: Int? = nil
 		while(gameRunning){
-			if (myGame.getCurrentScene() != currentScene){
+			if(myGame.getCurrentScene() != currentScene){
+				system("clear")
+				sleep(1)
 				myGame.printScene()
 				currentScene = myGame.getCurrentScene()
 			}
-		
-			print(" >".red, terminator: " ")
-			let command : String! = readLine()
-			// print("\n", terminator: "")
-			gameRunning = myGame.processCommand(command: command)
+			if(!myGame.isEndGame()){
+				print(" >".red, terminator: " ")
+				let command : String! = readLine()
+				// print("\n", terminator: "")
+				gameRunning = myGame.processCommand(command: command)
+			} else {
+				print("Dejesa jogar novamente? [sim/não]")
+				let command = readLine()
+				if (command == "não"){
+					myGame.gameExit()
+				} else {
+					gameRunning = false
+				}
+			}
 		
 		}
 

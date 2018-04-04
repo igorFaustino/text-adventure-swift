@@ -7,7 +7,7 @@ class Item{
     var positiveResult: String
     var targetScene : Int // scene to go when use the item
     var stocked: Bool
-    var inventoryObject: Bool
+    var isInventoryItem: Bool
     var resolved: Bool
     var key: Bool // key for puzzle
     var command: String
@@ -19,7 +19,7 @@ class Item{
             positiveResult: String,
             targetScene : Int,
             stocked: Bool,
-            inventoryObject: Bool,
+            isInventoryItem: Bool,
             resolved: Bool,
             key: Bool, 
             command: String )
@@ -31,7 +31,7 @@ class Item{
         self.positiveResult = positiveResult
         self.targetScene = targetScene
         self.stocked = stocked
-        self.inventoryObject = inventoryObject
+        self.isInventoryItem = isInventoryItem
         self.resolved = resolved
         self.key = key
         self.command = command
@@ -67,8 +67,8 @@ class Item{
         return self.stocked
     }
 
-    func getInventoryObject() -> Bool {
-        return self.inventoryObject
+    func getIsInventoryItem() -> Bool {
+        return self.isInventoryItem
     }
 
     func getResolved() -> Bool {
@@ -89,8 +89,8 @@ class Item{
         self.stocked = state
     }
 
-    func setInventoryObject(state: Bool){
-        self.inventoryObject = state
+    func setIsInventoryItem(state: Bool){
+        self.isInventoryItem = state
     }
 
     func setResolved(state: Bool){
