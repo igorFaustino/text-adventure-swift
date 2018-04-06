@@ -63,7 +63,9 @@ class GameEngine {
 				title: scene["title"].string!,
 				description: scene["description"].string!,
 				itens: itens,
-				endGame: scene["isEndGame"].bool!
+				endGame: scene["isEndGame"].bool!,
+				isQuick: scene["isQuick"].bool!,
+				time: scene["time"].int!
 			))
 		}
 		return Game(
@@ -100,26 +102,51 @@ class GameEngine {
 			))
 		}
 		self.game.setCurrentScene(value: loadGameJson["currentScene"].int!)
+		var itens: [Item] = []
+		for (_, item):(String, JSON) in loadGameJson["sceneItens"] {
+			itens.append(Item(
+				id: item["id"].int!,
+				name: item["name"].string!,
+				description: item["description"].string!,
+				negativeResult: item["negativeResult"].string!,
+				positiveResult: item["positiveResult"].string!,
+				targetScene: item["targetScene"].int!,
+				stocked: item["stocked"].bool!,
+				isInventoryItem: item["isInventoryItem"].bool!,
+				resolved: item["resolved"].bool!,
+				key: item["key"].bool!, 
+				command: item["command"].string!
+			))
+		}
+		self.game.getScene().loadItens(itens: itens)
+		if (self.game.getScene().getIsQuick()){
+			self.game.getScene().setTime(value: loadGameJson["time"].int!)
+		}
 		return true
 	}
 
-	// TODO: work in this!
 	func saveGame(filePath: String) {
-		// let saveGameFile = FileHandle(forWritingAtPath: filePath)
+		var saveError: Bool = false
 		let saveStruct = SaveStruct(
 			inventory: self.inventory!.getItens(),
-			currentScene: self.game.getCurrentScene()
+			currentScene: self.game.getCurrentScene(),
+			sceneItens: self.game.getScene().getItens(),
+			time: self.game.getScene().getTime()
 		)
 		let jsonEncoder = JSONEncoder()
 		let jsonData = try! jsonEncoder.encode(saveStruct)
 		let json = String(data: jsonData, encoding: String.Encoding.utf8)!
-		print(json)
 		do {
 			try json.write(toFile: filePath, atomically: false, encoding: String.Encoding.utf8)
-		} catch let error as NSError {
+		} catch _ as NSError {
 			print("Ooops! não foi possivel salvar seu jogo...")
+			saveError = true
 		} catch {
 			print("Ooops! não foi possivel salvar seu jogo...")
+			saveError = true			
+		}
+		if (!saveError){
+			print("Jogo salvo com sucesso!")
 		}
 	}
 
@@ -128,7 +155,6 @@ class GameEngine {
 	}
 
 	func initRadioMessagesFromFile() -> [String] {
-		// work in progress..
 		var radioMessages: [String] = []
 		for (_, radioMessagesItem):(String, JSON) in self.json["radioMessages"] {
 			radioMessages.append(radioMessagesItem.string!)
@@ -198,13 +224,13 @@ class GameEngine {
 		} else if (command == "inventory"){
 			inventory.printInventory()
 		} else if (command.range(of: "check") != nil){
-			checkItem(command: command)
+			return checkItem(command: command)
 		} else if (command.range(of: "get") != nil){
-			getItem(command: command)
+			return getItem(command: command)
 		} else if (command.range(of: "use") != nil && command.range(of: "with") == nil){
-			useItem(command: command)
+			return useItem(command: command)
 		} else if (command.range(of: "use") != nil && command.range(of: "with") != nil){
-			useItemWith(command: command)
+			return useItemWith(command: command)
 		} else {
 			print("Não entendi o que voce quis dizer...")
 		}
@@ -229,12 +255,18 @@ class GameEngine {
 		exit(0)
 	}
 
+	func endGame(){
+		printGameOver()
+		print("\n[Digite enter para continuar]")
+		_ = readLine()
+	}
+
 	// check item
-	func checkItem(command: String){
+	func checkItem(command: String) -> Bool {
 		let commandSplit = command.split(separator:" ")
 		if(commandSplit.count < 2){
         	print("Não entendi o que você quis dizer...")
-			return
+			return true
 		}
 		let item = commandSplit[1]
 		let itemFromInventary = inventory.searchItem(name: String(item))
@@ -245,15 +277,25 @@ class GameEngine {
 			print(itemFromScene!.getDescription())
 		} else {
         	print("Não entendi o que você quis dizer...")
-			return
+			return true
 		}
+		let currentScene = self.game.getScene()
+		if(currentScene.getIsQuick()){
+			let stillTime = currentScene.passTime()
+			print(currentScene.getTime(), "jogadas restantes\n")
+			if (!stillTime){
+				endGame()
+			}
+			return stillTime
+		}
+		return true
     }
 
-	func getItem(command: String){
+	func getItem(command: String) -> Bool {
 		let commandSplit = command.split(separator:" ")
 		if(commandSplit.count < 2){
         	print("Não entendi o que você quis dizer...")
-			return
+			return true
 		}
 		let item = commandSplit[1]
 		let itemFromScene = game.getScene().searchItemScene(name: String(item))
@@ -265,24 +307,32 @@ class GameEngine {
 					inventory.addItem(item: itemFromScene!)
 					print("O item foi adicionado ao inventario")
 				} else {
-					print("Esse item já está comigo")
-					return					
+					print("Esse item já está comigo")					
 				}
 			} else {
 				print("Eu não acho que consigo fazer isso...")
-				return
 			}
 		} else {
         	print("Não entendi o que você quis dizer...")
-			return
+			return true
 		}
+		let currentScene = self.game.getScene()
+		if(currentScene.getIsQuick()){
+			let stillTime = currentScene.passTime()
+			print(currentScene.getTime(), "jogadas restantes\n")
+			if (!stillTime){
+				endGame()
+			}
+			return stillTime
+		}
+		return true
 	}
 
-	func useItemWith(command: String){
+	func useItemWith(command: String) -> Bool {
 		let commandSplit = command.split(separator:" ")
 		if(commandSplit.count < 2){
         	print("Não entendi o que você quis dizer...")
-			return
+			return true
 		}
 
 		let itemInInventory = commandSplit[1]
@@ -293,21 +343,31 @@ class GameEngine {
 			if(itemFromScene!.getCommand() == command){
 				print(itemFromScene!.getPositiveResult())
 				game.setCurrentScene(value: itemFromScene!.getTargetScene())
+				return true
 			} else {
 				print(itemFromScene!.getNegativeResult())
-				return
 			}
 		} else {
         	print("Não entendi o que você quis dizer...")
-			return
+			return true
 		}
+		let currentScene = self.game.getScene()
+		if(currentScene.getIsQuick()){
+			let stillTime = currentScene.passTime()
+			print(currentScene.getTime(), "jogadas restantes\n")
+			if (!stillTime){
+				endGame()
+			}
+			return stillTime
+		}
+		return true
 	}
 
-	func useItem(command: String){
+	func useItem(command: String) -> Bool {
 		let commandSplit = command.split(separator:" ")
 		if(commandSplit.count < 2){
         	print("Não entendi o que você quis dizer...")
-			return
+			return true
 		}
 		let item = commandSplit[1]
 		let itemFromScene = game.getScene().searchItemScene(name: String(item))
@@ -315,14 +375,24 @@ class GameEngine {
 			if(itemFromScene!.getCommand() == command){
 				print(itemFromScene!.getPositiveResult())
 				game.setCurrentScene(value: itemFromScene!.getTargetScene())
+				return true
 			} else {
 				print(itemFromScene!.getNegativeResult())
-				return
 			}
 		} else {
         	print("Não entendi o que você quis dizer...")
-			return
+			return true
 		}
+		let currentScene = self.game.getScene()
+		if(currentScene.getIsQuick()){
+			let stillTime = currentScene.passTime()
+			print(currentScene.getTime(), "jogadas restantes\n")
+			if (!stillTime){
+				endGame()
+			}
+			return stillTime
+		}
+		return true
 	}
 }
 

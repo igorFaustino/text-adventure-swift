@@ -12,6 +12,8 @@
 			"id": 0,
 			"title": "cena 1",
 			"description": "primeira cena",
+			"isQuick": false,
+			"time": 0,
 			"itens": [
 				{
 					"id": 1,
@@ -33,6 +35,8 @@
 			"id": 1,
 			"title": "cena 2",
 			"description": "segunda cena",
+			"isQuick": true,
+			"time": 3,
 			"itens": [
 				{
 					"id": 1,

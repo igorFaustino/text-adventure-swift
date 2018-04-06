@@ -51,7 +51,6 @@ func gameMain(){
 		// clear all the text in the bash
 		system("clear")
 
-		// you need to pass the whole path to the file -> this is bad!!
 		let path = URL(fileURLWithPath: "./Sources/json/test.json").path
 		let myGame = GameEngine(filePath: path)
 
@@ -79,7 +78,6 @@ func gameMain(){
 			if(!myGame.isEndGame()){
 				print(" >".red, terminator: " ")
 				let command : String! = readLine()
-				// print("\n", terminator: "")
 				gameRunning = myGame.processCommand(command: command)
 			} else {
 				print("Dejesa jogar novamente? [sim/não]")
