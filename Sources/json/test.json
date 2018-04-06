@@ -10,46 +10,108 @@
 	"scenes": [
 		{
 			"id": 0,
-			"title": "cena 1",
-			"description": "primeira cena",
+			"title": "O Início",
+			"description": "Você abre os olhos e está em quarto pequeno, com pouca iluminação. Você vê um INTERRUPTOR na parede que está a sua frente. Ao lado oposto, há uma JANELA. Abaixo de sua cadeira há uma PEDRA. Uma PORTA aparece a distância.",
 			"isQuick": false,
 			"time": 0,
 			"itens": [
 				{
+					"id": 0,
+					"name": "INTERRUPTOR",
+					"description": "Um interruptor comum. Parece estar fora de uso.",
+					"negativeResult": "O interruptor está quebrado e sem efeito.",
+					"positiveResult": "",
+					"targetScene": -1,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": ""
+				},
+				{
 					"id": 1,
-					"name": "item",
-					"description": "item qualquer",
-					"negativeResult": "deu ruim",
-					"positiveResult": "yaay",
-					"targetScene": 1,
+					"name": "JANELA",
+					"description": "Um dos vidros está rachado.",
+					"negativeResult": "Não vai funcionar.",
+					"positiveResult": "A pedra quebrou a janela e você passou por ela.",
+					"targetScene": 2,
 					"isInventoryItem": true,
 					"stocked": false,
 					"resolved": false,
 					"key": false,
-					"command": "use item"
+					"command": "USE PEDRA WITH JANELA"
+				},
+				{
+					"id": 2,
+					"name": "PORTA",
+					"description": "A porta parece estar aberta",
+					"negativeResult": "Não consigo fazer isso com a porta.",
+					"positiveResult": "Você abriu a porta e passou por ela.",
+					"targetScene": 1,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": "USE PORTA"
+				},
+				{
+					"id": 3,
+					"name": "PEDRA",
+					"description": "Uma pedra comum, pequena e pesada (parece ideal para quebrar vidros)",
+					"negativeResult": "",
+					"positiveResult": "Não posso fazer isso com a pedra",
+					"targetScene": -1,
+					"isInventoryItem": true,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": ""
 				}
 			],
 			"isEndGame": false
 		},
 		{
 			"id": 1,
-			"title": "cena 2",
-			"description": "segunda cena",
+			"title": "A Sala Escura",
+			"description": "Você entrou em uma sala completamente escura... Há uma PORTA para voltar.",
 			"isQuick": true,
 			"time": 3,
 			"itens": [
 				{
-					"id": 1,
-					"name": "item",
-					"description": "item qualquer",
-					"negativeResult": "deu ruim",
-					"positiveResult": "yaay",
+					"id": 2,
+					"name": "PORTA",
+					"description": "A porta parece estar aberta",
+					"negativeResult": "Não consigo fazer isso com a porta.",
+					"positiveResult": "Você abriu a porta e passou por ela.",
 					"targetScene": 0,
-					"isInventoryItem": true,
+					"isInventoryItem": false,
 					"stocked": false,
 					"resolved": false,
 					"key": false,
-					"command": "use item"
+					"command": "USE PORTA"
+				}
+			],
+			"isEndGame": false
+		},
+		{
+			"id": 2,
+			"title": "Outra Sala",
+			"description": "Você entrou em uma sala completamente diferente... Há uma PORTA para voltar.",
+			"isQuick": true,
+			"time": 3,
+			"itens": [
+				{
+					"id": 2,
+					"name": "PORTA",
+					"description": "A porta parece estar aberta",
+					"negativeResult": "Não consigo fazer isso com a porta.",
+					"positiveResult": "Você abriu a porta e passou por ela.",
+					"targetScene": 0,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": "USE PORTA"
 				}
 			],
 			"isEndGame": false

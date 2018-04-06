@@ -14,6 +14,10 @@ class Inventory{
     }
 
     func printInventory(){
+        if(self.vectorItens.count == 0){
+            print("Empty")
+            return
+        }
         for item in self.vectorItens {
             print("\(item.name)", terminator:" ")
         }

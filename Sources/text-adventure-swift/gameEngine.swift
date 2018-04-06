@@ -175,9 +175,10 @@ class GameEngine {
 	}
 
 	func processCommand(command: String) -> Bool {
+		let lowerCommand = command.lowercased()
 		if (command == "help"){
 			printHelp()
-		} else if (command == "exit"){
+		} else if (lowerCommand == "exit"){
 			print("Tem certeza que dejesa sair? [sim/nao]\nTodo o seu progresso não salvo será perdido!")
 			print(" >".red, terminator: " ")
 			var answer = readLine()
@@ -194,7 +195,7 @@ class GameEngine {
 			}
 
 			gameExit()
-		} else if (command == "restart") {
+		} else if (lowerCommand == "restart") {
 			print("Tem certeza que dejesa reiniciar o jogo? [sim/nao]\nTodo o seu progresso não salvo será perdido!")
 			print(" >".red, terminator: " ")
 			var answer = readLine()
@@ -209,7 +210,7 @@ class GameEngine {
 			} else if (negativeAnswer(answer: answer!)) {
 				return true
 			}
-		} else if(command == "save"){
+		} else if(lowerCommand == "save"){
 			print("Digite um nome para o save ou digite cancelar para cancelar o salvamento")
 			print(" >".red, terminator: " ")
 			let answer = readLine()
@@ -219,18 +220,18 @@ class GameEngine {
 				let path = URL(fileURLWithPath: "./Sources/json/saves/" + answer! + ".json").path
 				saveGame(filePath: path)
 			}
-		} else if (command == "use radio"){
+		} else if (lowerCommand == "use radio"){
 			useRadio()
-		} else if (command == "inventory"){
+		} else if (lowerCommand == "inventory"){
 			inventory.printInventory()
-		} else if (command.range(of: "check") != nil){
-			return checkItem(command: command)
-		} else if (command.range(of: "get") != nil){
-			return getItem(command: command)
-		} else if (command.range(of: "use") != nil && command.range(of: "with") == nil){
-			return useItem(command: command)
-		} else if (command.range(of: "use") != nil && command.range(of: "with") != nil){
-			return useItemWith(command: command)
+		} else if (lowerCommand.range(of: "check") != nil){
+			return checkItem(command: lowerCommand)
+		} else if (lowerCommand.range(of: "get") != nil){
+			return getItem(command: lowerCommand)
+		} else if (lowerCommand.range(of: "use") != nil && lowerCommand.range(of: "with") == nil){
+			return useItem(command: lowerCommand)
+		} else if (lowerCommand.range(of: "use") != nil && lowerCommand.range(of: "with") != nil){
+			return useItemWith(command: lowerCommand)
 		} else {
 			print("Não entendi o que voce quis dizer...")
 		}
@@ -340,9 +341,10 @@ class GameEngine {
 		let itemFromInventary = inventory.searchItem(name: String(itemInInventory))
 		let itemFromScene = game.getScene().searchItemScene(name: String(itemInScene))
 		if(itemFromScene != nil && itemFromInventary != nil){
-			if(itemFromScene!.getCommand() == command){
+			if(itemFromScene!.getCommand().lowercased() == command){
 				print(itemFromScene!.getPositiveResult())
 				game.setCurrentScene(value: itemFromScene!.getTargetScene())
+				inventory.deleteItem(name: itemFromInventary!.getName())
 				return true
 			} else {
 				print(itemFromScene!.getNegativeResult())
@@ -372,7 +374,7 @@ class GameEngine {
 		let item = commandSplit[1]
 		let itemFromScene = game.getScene().searchItemScene(name: String(item))
 		if(itemFromScene != nil){
-			if(itemFromScene!.getCommand() == command){
+			if(itemFromScene!.getCommand().lowercased() == command){
 				print(itemFromScene!.getPositiveResult())
 				game.setCurrentScene(value: itemFromScene!.getTargetScene())
 				return true
