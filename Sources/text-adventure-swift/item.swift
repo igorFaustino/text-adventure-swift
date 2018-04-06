@@ -1,4 +1,4 @@
-class Item{
+class Item: Codable {
     
     var id : Int // id for identify in the Save
     var name: String

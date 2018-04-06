@@ -15,11 +15,23 @@ func menu(game: GameEngine) -> Bool{
 	if (command == "newgame") {
 		print("newgame")
 	} else if (command == "load") {
-		print("Digite o nome do save..")
+		// Get all save names to show for the user
+		let fileMngr = FileManager.default;
+		let savePath = URL(fileURLWithPath: "./Sources/json/saves/").path
+    	let saveFiles = try! fileMngr.contentsOfDirectory(atPath: savePath)
+		print("Escolha um save...")
+		for save in saveFiles{
+			print("-", save.replacingOccurrences(of: ".json", with: ""))
+		}
+
+		print("\nDigite o nome do save ou digite cancelar para voltar ao menu principal...")
 		print(" >".red, terminator: " ")
 		let command : String! = readLine()
+		if (command.lowercased() == "cancelar"){
+			return true
+		}
 		let path = URL(fileURLWithPath: "./Sources/json/saves/" + command + ".json").path
-		game.loadGame(filePath: path)
+		return !game.loadGame(filePath: path)
 	} else if (command == "help") {
 		game.printHelp()
 		return true

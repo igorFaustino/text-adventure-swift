@@ -5,6 +5,10 @@ class Inventory{
         self.vectorItens = [Item]()
     }
 
+    func getItens() -> [Item] {
+        return self.vectorItens
+    }
+
     func addItem(item: Item){
         self.vectorItens.append(item)
     }

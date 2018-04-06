@@ -74,9 +74,13 @@ class GameEngine {
 		)
 	}
 
-	func loadGame(filePath: String) {
+	func loadGame(filePath: String) -> Bool{
 		// TODO: Test this function
 		let loadGameFile: FileHandle! = FileHandle(forReadingAtPath: filePath)
+		if (loadGameFile == nil){
+			print("Este save não existe...")
+			return false
+		}
 		let loadGameData: Data = loadGameFile!.readDataToEndOfFile()
 		let loadGameJson: JSON = JSON(data: loadGameData)
 
@@ -96,11 +100,27 @@ class GameEngine {
 			))
 		}
 		self.game.setCurrentScene(value: loadGameJson["currentScene"].int!)
+		return true
 	}
 
 	// TODO: work in this!
 	func saveGame(filePath: String) {
-
+		// let saveGameFile = FileHandle(forWritingAtPath: filePath)
+		let saveStruct = SaveStruct(
+			inventory: self.inventory!.getItens(),
+			currentScene: self.game.getCurrentScene()
+		)
+		let jsonEncoder = JSONEncoder()
+		let jsonData = try! jsonEncoder.encode(saveStruct)
+		let json = String(data: jsonData, encoding: String.Encoding.utf8)!
+		print(json)
+		do {
+			try json.write(toFile: filePath, atomically: false, encoding: String.Encoding.utf8)
+		} catch let error as NSError {
+			print("Ooops! não foi possivel salvar seu jogo...")
+		} catch {
+			print("Ooops! não foi possivel salvar seu jogo...")
+		}
 	}
 
 	func getCurrentScene() -> Int {
@@ -164,7 +184,15 @@ class GameEngine {
 				return true
 			}
 		} else if(command == "save"){
-			// do the save stuff here
+			print("Digite um nome para o save ou digite cancelar para cancelar o salvamento")
+			print(" >".red, terminator: " ")
+			let answer = readLine()
+			if (answer == "cancelar"){
+				return true
+			} else {
+				let path = URL(fileURLWithPath: "./Sources/json/saves/" + answer! + ".json").path
+				saveGame(filePath: path)
+			}
 		} else if (command == "use radio"){
 			useRadio()
 		} else if (command == "inventory"){
