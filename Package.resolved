@@ -36,6 +36,15 @@
           "revision": "7d78e6a9907a5ab23e3f8d4d4ce3e2101abeec9d",
           "version": "15.0.6"
         }
+      },
+      {
+        "package": "SwiftySound",
+        "repositoryURL": "https://github.com/adamcichy/SwiftySound.git",
+        "state": {
+          "branch": null,
+          "revision": "4a754f9b5dff91374fa96c27bade1b250f39e763",
+          "version": "0.7.0"
+        }
       }
     ]
   },

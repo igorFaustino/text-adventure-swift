@@ -47,7 +47,7 @@ class Scene: Codable {
 	}
 
 	func printScene(){
-		print(self.title)
+		print(self.title, terminator: "")
 		print(self.description)
 	}
 

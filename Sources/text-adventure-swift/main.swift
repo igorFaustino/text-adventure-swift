@@ -13,7 +13,9 @@ func menu(game: GameEngine) -> Bool{
 	// print("\n")
 
 	if (command == "newgame") {
-		print("newgame")
+		system("clear")
+		sleep(1)
+		game.printGameDescription()
 	} else if (command == "load") {
 		// Get all save names to show for the user
 		let fileMngr = FileManager.default;
@@ -51,12 +53,11 @@ func gameMain(){
 		// clear all the text in the bash
 		system("clear")
 
-		let path = URL(fileURLWithPath: "./Sources/json/test.json").path
+		let path = URL(fileURLWithPath: "./Sources/json/game.json").path
 		let myGame = GameEngine(filePath: path)
 
 		// print game info
 		myGame.printGameTitle()
-		myGame.printGameDescription()
 
 		// main menu
 		var gameRunning = true
@@ -81,6 +82,7 @@ func gameMain(){
 				gameRunning = myGame.processCommand(command: command)
 			} else {
 				print("Dejesa jogar novamente? [sim/não]")
+				print(" >".red, terminator: " ")
 				let command = readLine()
 				if (command == "não"){
 					myGame.gameExit()

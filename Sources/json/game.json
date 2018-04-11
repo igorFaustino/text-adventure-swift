@@ -1,0 +1,270 @@
+{
+	"gameTitle": "---------------------------\n----- My Awesome Game -----\n---------------------------\n",
+	"gameDescription": "Algum bar dos Estados Unidos\nDia qualquer\n\n- Meu nome é Nathan Black e sou um caçador de recompensas, viajei o mundo todo, lutando contra soviéticos, sociedades secretas, ditadores e criaturas inimagináveis. Cheguei aos confins da terra , onde céu e terra são um só, eu vi a cara da morte várias vezes, ela sedutora e mortal, mas não caía nos jogos dela, porque será tarde demais. Contei com a sorte e meu charme para escapar das maiores armadilhas do destino.\n- Talvez você não acredite, Meu Jovem, mas a história que eu vou contar supera os seus maiores sonhos, a busca pelo Orbe do Jaguar, uma peça de origem lendária, que muitos pensavam ser forjada pelos Deuses Maias e possuir poderes inimagináveis, diversas expedições foram realizadas, vários amigos morreram almejando o inalcançável item perdido. Minha equipe inteira foi assassinada no processo, sou o último sobrevivente dessa tragédia, ainda me lembro de cada morte e cada sacrificío que eles fizeram para que eu estivesse aqui.(Vocês não morreram em vâo meus irmãos, eu viverei por vocês!)",
+	"radioMessages" : [
+		"boa garoto",
+		"oh shit",
+		"teste"
+	],
+	"help": "--------------------------------------\nTodas as ações são realizadas por meio de comandos de texto\n\nLista de comandos:\n\nSAVE: salva o progresso atual\nINVENTORY: Exibir os itens do inventario\nRADIO: utiliza o radio para pedir ajuda\nCHECK [NOME ITEM]: Olha um item\nUSE [ITEM]: utiliza um item\nUSE [ITEM DO INVENTARIO] WITH [ITEM DO MUNDO]: utiliza um item do inventario com um item do mundo\nRESTART: reinicia o jogo\nEXIT: sai do jogo atual\nHELP: mostra a ajuda\n\nBoa aventura!\n--------------------------------------\n",
+	"scenes": [
+		{
+			"id": 0,
+			"title": "Biblioteca da Universidade de Liverpool\n19 de outubro de 1983\n\n",
+			"description": "- A história começa na Biblioteca da Universidade de Liverpool, era uma tarde de quarta-feira, 1986, os raios de sol invadiam a sala, iluminando as longas mesas de madeira maciça, era fim de semestre, então o lugar estava borbulhando de jovens alunos debruçado nos livros, os que não seguiam essa linha, iam beber no bar do outro lado do campus, o \"Ás na Manga\", lá se servia cerveja preta e batata frita, um banquete para os embriagados, sempre tocavam o bom e velho Rock, ás vezes o som era tão alto que invadia o campus, e todos no patio eram contagiados pela musica, e dançavam como selvagens rebeldes a beira de uma revolução.\n- Mas que torna diferente um dia tão comum como quarta-feira, você pode estar se perguntando?\n\nVocê está em uma biblioteca,  há uma grande mesa de madeira a sua frente, um LIVRO e algumas ANOTAÇÕES suas estão espalhadas nela , a mesa está sendo iluminada pela luz do sol que invade a sala pela JANELA.",
+			"isQuick": false,
+			"time": 0,
+			"itens": [
+				{
+					"id": 0,
+					"name": "JANELA",
+					"description": "Você olhou para a janela, e viu alguns estudantes, deitados na grama do patio do câmpus.",
+					"negativeResult": "Melhor não fazer isso.",
+					"positiveResult": "",
+					"speach": "Não acho que consigo fazer isso...",
+					"targetScene": -1,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": ""
+				},
+				{
+					"id": 1,
+					"name": "ANOTACOES",
+					"description": "Você está lendo anotações sobre ruínas na américa latina.",
+					"negativeResult": "Não preciso fazer isso.",
+					"positiveResult": "",
+					"speach": "-Ola anotações... que dia produtivo...",
+					"targetScene": -1,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": ""
+				},
+				{
+					"id": 2,
+					"name": "LIVRO",
+					"description": "Você achou um livro misterioso, ele conta a história do diário de um historiador perdido.",
+					"negativeResult": "Não consigo fazer isso com esse livro.",
+					"positiveResult": "Você abriu o livro....",
+					"speach": "Não acho que consigo fazer isso...",
+					"targetScene": 1,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": "USE LIVRO"
+				}
+			],
+			"isEndGame": false
+		},
+		{
+			"id": 1,
+			"title": "",
+			"description": "- Eu estava pesquisando sobre antigas ruínas de antigas civilizações da América Latina, enquanto perambulava pelas prateleiras de livro, um raro chamado me ocorreu, uma voz roca e esganiçada me chamava por entre os livros, não eram bem palavras expressas, mas um extinto que me impusionava para o curioso ruído, então segui a estranha voz, até a ultima prateleira, no topo, havia um estranho livro empoeirado, de couro preto, com simbolos que lembravam muito inscrições maias, na capa havia o desenho de uma pantera, e no verso da capa, estava escrito \"Escrito pelo Professor Morgan Ledger\", um famoso arqueólogo, que até então estava desaparecido.\n\n\"Este é um relato da minha última página de uma grande história, chamada minha vida, se você esta lendo isso quer dizer que não estou mais neste mundo, meu assistente enviou esse manuscrito contando sobre a descoberta da minha vida, o Orbe do Jaguar. Este item \"amaldiçoado\" pertenceu ao Imperador Pantera, o último da civilização maia.\nAs lendas dizem que ele usava a Orbe para ver a verdade através da alma das pessoas, ver o futuro, e controlar todo o Império. Muitos guerras foram travadas pela cobiça e ganância de obter tal peça. No seu leito de morte foi enterrado junto com ela, em seu palácio, que até então tinha localização desconhecida.\"\n\n...\n...\n...\n\n\"Depois de vários de dias peregrinando pelas selvas densas, encontrei as ruínas perdidas do palácio do imperador.\"COORDENADAS : 17°33'05.9\"N 99°30'07.4\"W",
+			"isQuick": false,
+			"time": 0,
+			"itens": [
+				{
+					"id": 3,
+					"name": "COORDENADAS",
+					"description": "Coordenadas de uma vila no sul do México",
+					"negativeResult": "Melhor não fazer isso.",
+					"positiveResult": "Você segue as coordenadas e inicia sua expedição.",
+					"speach": "",
+					"targetScene": 2,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": "USE COORDENADAS"
+				}
+			],
+			"isEndGame": false
+		},
+		{
+			"id": 2,
+			"title": "Outra Sala",
+			"description": "- As coordenadas do livro, levavam para uma vila pequena no sul do México, chamada de Chalalachola, um lugar pacato, com selvas densas, e animais peculiares e venenosos, a beleza exuberante do lugar escondia um perigo ainda maior que estava pela frente, os homens mais destemidos sucumbiriam a uma simples picada de uma aranha gigante, capaz de matar centenas de homens com uma singela gota mortal de veneno.\n- Então antes de mais nada seria necessário, buscar um guia, um morador local, capaz de viajar pela selva inexplorada, de uma maneira mais segura. Adentrei a cidade e vi o retrato de uma vila interiorana, os  habitantes que transitavam o lugar, usavam ponchos longos, coloridos, sempre estavam com um cavalo ou uma lhama, aparentemente o meio de transporte popular do local. Odeio lhamas, uma vez no Peru, uma criatura dessas mal encaradas, investiu em minha direção, e cuspiu na minha cara toda. Desde então tenho aversão a este ser maldito.\n- O sol estava no topo do Céu, um ótimo momento na rua principal do vilarejo, onde dezenas de pessoas estão perambulando, oportunidade perfeita para achar o guia.\n\nVocê esta na rua principal da vila, varias pessoas andando, CRIANÇAS brincando, vendendores ambulantes, uma SENHORA vendendo tomates, musicos ao longo do trecho tocando flauta, um MERCADOR de tecido esta ao seu lado direito.",
+			"isQuick": true,
+			"time": 3,
+			"itens": [
+				{
+					"id": 4,
+					"name": "CRIANÇAS",
+					"description": "Você esta conversando com um grupo de criança, perguntando sobre o guia",
+					"negativeResult": "Melhor não fazer isso.",
+					"positiveResult": "",
+					"speach": "Não falamos com estranhos...",
+					"targetScene": -1,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": ""
+				},
+				{
+					"id": 5,
+					"name": "MERCADOR",
+					"description": "O mercador está na sua frente, e a sua banca está cheia tecidos e joias",
+					"negativeResult": "Melhor não fazer isso.",
+					"positiveResult": "",
+					"speach": "O guia essas horas deve estar na TAVERNA das tequileiras.",
+					"targetScene": -1,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": ""
+				},
+				{
+					"id": 6,
+					"name": "Artesão",
+					"description": "O mercador está na sua frente, e a sua banca está cheia tecidos e joias",
+					"negativeResult": "Melhor não fazer isso.",
+					"positiveResult": "",
+					"speach": "Eu não conheço nenhum guia, talvez o MERCADOR conheça, ele conhece todo mundo aqui",
+					"targetScene": -1,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": ""
+				}
+			],
+			"isEndGame": false
+		},
+		{
+			"id": 3,
+			"title": "La Taberna de las Tequilleras",
+			"description": "- Frequentei vários bares, e tavernas ao redor do mundo, mas pela primeira vez vi uma taverna totalmente gerenciada por mulheres, a especialidade do lugar era Tequila, os móveis eram um pouco rústicos, sem muito acabamento. Pinturas de animais, e esculturas de deuses em madeira, adornavam o lugar. Muito agradável para curtir com os amigos e esquecer os problemas, só faltava um pouco de Led Zeppelin pra ser perfeito. O lugar estava lotado, alguns brigando no bar, pela atenção das moças que serviam as bebidas, outros apenas relaxando de mais um dia de trabalho ardo no campo.\n\nVocê está no bar lotado cheio de gente, a TAVERNEIRA está alguns metros a sua frente servindo a todos os beberrões.",
+			"isQuick": true,
+			"time": 3,
+			"itens": [
+				{
+					"id": 4,
+					"name": "CRIANÇAS",
+					"description": "Você esta conversando com um grupo de criança, perguntando sobre o guia",
+					"negativeResult": "Melhor não fazer isso.",
+					"positiveResult": "",
+					"speach": "Não falamos com estranhos...",
+					"targetScene": -1,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": ""
+				},
+				{
+					"id": 5,
+					"name": "MERCADOR",
+					"description": "O mercador está na sua frente, e a sua banca está cheia tecidos e joias",
+					"negativeResult": "Melhor não fazer isso.",
+					"positiveResult": "",
+					"speach": "O guia essas horas deve estar na TAVERNA das tequileiras.",
+					"targetScene": -1,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": ""
+				},
+				{
+					"id": 6,
+					"name": "Artesão",
+					"description": "O mercador está na sua frente, e a sua banca está cheia tecidos e joias",
+					"negativeResult": "Melhor não fazer isso.",
+					"positiveResult": "",
+					"speach": "Eu não conheço nenhum guia, talvez o MERCADOR conheça, ele conhece todo mundo aqui",
+					"targetScene": 2,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": "TALK MERCADOR"
+				}
+			],
+			"isEndGame": false
+		},
+		{
+			"id": 4,
+			"title": "No fundo da Taverna",
+			"description": "- Meu jovem, nessa vida carregamos, muitos fardos, às vezes os arrependimentos de coisas que queriamos fazer  e não fizemos, outras vezes sangue de inocentes que derramos por conta do trabalho, no meu caso era a beleza, uma mistura de benção e maldição. Muitas mulheres tiveram o coração despedaçado por esse fardo que carrego, por eu não poder corresponder a um amor recíproco, e eu não faria mais uma vitima esta noite. Apesar da carne desejar e implorar para saciar a jovem ao meu lado, estava fora de questão iludi-la.\n- Você pode estar rindo agora, mas existe apenas duas coisas que não se pode brincar nesta vida, uma delas é a com morte, a outra é com os sentimentos das pessoas. Então falei sinceramente com ela sobre estar procurando um guia. Ela ficou a princípio decepcionada, mas foi compreensiva, e me apresentou ao guia.\n\nVocê está no fundo da taverna conversando com a Taverneira MIKA.",
+			"isQuick": true,
+			"time": 3,
+			"itens": [
+				{
+					"id": 2,
+					"name": "MIKA",
+					"description": "Você esta voltando para dentro da taverna, com a MIKA.",
+					"negativeResult": "Melhor não fazer isso.",
+					"positiveResult": "",
+					"speach": "Bom, ja que não dar em nada, eu vou lhe mostrar a pessoa que você esta procurando... aquela sentada sozinha, ela bem durona apesar de ser dura e carrancuda, no fundo é uma boa pessoa, o nome dela é ROSE. Escolha bem as suas palavras, porque podem ser as últimas. \nQuando estiver atoa, venha me visitar aqui na taverna, estarei te esperando...",
+					"targetScene": -1,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": ""
+				},
+				{
+					"id": 2,
+					"name": "ROSE",
+					"description": "ROSE",
+					"negativeResult": "Melhor não fazer isso.",
+					"positiveResult": "",
+					"speach": "Cuidado forasteiro, essas terras não estão para brincadeira, volte para casa da mamãe que mais seguro para você. porque você não pegue uma CADEIRA e me conte logo o que você esta querendo, meu tempo é precioso.",
+					"targetScene": -1,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": ""
+				},
+				{
+					"id": 2,
+					"name": "CADEIRA",
+					"description": "Uma cadeira de madeira sobrando... esse lugar esta lotado hoje",
+					"negativeResult": "Melhor não fazer isso.",
+					"positiveResult": "Você puxou a cadeira e sentou com a Rose.",
+					"speach": "Cuidado forasteiro, essas terras não estão para brincadeira, volte para casa da mamãe que mais seguro para você. porque não você não pegue uma CADEIRA e me conte logo o que você esta querendo, meu tempo é precioso.",
+					"targetScene": 5,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": "USE CADEIRA"
+				}
+			],
+			"isEndGame": false
+		},
+		{
+			"id": 5,
+			"title": "Outra Sala",
+			"description": "- Sentei a mesa junto a amazona que estava a minha frente, ela possuia um semblante de guerreira, tinha a sede da aventura nos seus olhos azuis, era bem bonita, tinha um corpo atético esculpido pela selva e seus perigos, cabelos loiros cacheados longos, com uma cinta, e bota de couro, e uma faca na cintura. Talvez fosse a mulher mais durona que eu ja conheci.\n- Expliquei a ela sobre o local onde queria chegar, e discutimos os preparativos da expedição, dinheiro não era o problema para pagar pelo serviço, apelei pelo lado aventureiro da figura, pois estava relutante, por me achar fraco e não querer carregar um peso morto pela selva mexicana. Brindamos uma ou duas doses de Tequila e saimos daquele lugar para nos preparamos para a viagem.\n\n\"Agora que está tudo definido, irei atras do suplementos para a viagem, me encontre a manhã no nascer do sol no ponto de encontro, não se atrase, e esteja pronto.\"\nVocê esta saindo da taverna com a rose, e ela te entrega um PERGAMINHO, com o ponto de encontro para iniciar a viagem.",
+
+			"isQuick": true,
+			"time": 3,
+			"itens": [
+				{
+					"id": 8,
+					"name": "PERGAMINHO",
+					"description": "O pergaminho mostra o caminho para o ponto de encontro",
+					"negativeResult": "Melhor não fazer isso com esse pergaminho.",
+					"positiveResult": "",
+					"speach": "",
+					"targetScene": 6,
+					"isInventoryItem": false,
+					"stocked": false,
+					"resolved": false,
+					"key": false,
+					"command": "USE PERGAMINHO"
+				}
+			],
+			"isEndGame": false
+		}
+	],
+	"gameOver": "Vc Morreu"
+}
