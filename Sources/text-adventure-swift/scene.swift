@@ -7,8 +7,10 @@ class Scene: Codable {
 	let endGame: Bool
 	let isQuick: Bool
 	var time: Int
+	var music: String
+	var resolutionSong: String
 
-	init(id: Int, title: String, description: String, itens: [Item], endGame: Bool, isQuick: Bool, time: Int){
+	init(id: Int, title: String, description: String, itens: [Item], endGame: Bool, isQuick: Bool, time: Int, music: String, resolutionSong: String){
 		self.id = id
 		self.title = title
 		self.description = description
@@ -16,10 +18,20 @@ class Scene: Codable {
 		self.endGame = endGame
 		self.isQuick = isQuick
 		self.time = time
+		self.music = music
+		self.resolutionSong = resolutionSong
 	}
 
 	func getIsQuick() -> Bool {
 		return self.isQuick
+	}
+
+	func getMusic() -> String {
+		return self.music
+	}
+
+	func getResolutionSong() -> String {
+		return self.resolutionSong
 	}
 
 	func passTime() -> Bool {
@@ -53,7 +65,7 @@ class Scene: Codable {
 
 	func searchItemScene(name: String) -> Item! {
         for item in self.itens {
-            if(item.getName().lowercased() == name.lowercased()){
+            if(item.getName().lowercased().folding(options: .diacriticInsensitive, locale: .current) == name.lowercased().folding(options: .diacriticInsensitive, locale: .current)){
                 return item
             }
         }

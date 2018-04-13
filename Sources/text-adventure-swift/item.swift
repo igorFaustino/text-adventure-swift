@@ -11,12 +11,14 @@ class Item: Codable {
     var resolved: Bool
     var key: Bool // key for puzzle
     var command: String
+    var speech: String
 
     init(   id : Int,
             name: String,
             description: String,
             negativeResult: String,
             positiveResult: String,
+            speech: String,
             targetScene : Int,
             stocked: Bool,
             isInventoryItem: Bool,
@@ -29,6 +31,7 @@ class Item: Codable {
         self.description = description
         self.negativeResult = negativeResult
         self.positiveResult = positiveResult
+        self.speech = speech
         self.targetScene = targetScene
         self.stocked = stocked
         self.isInventoryItem = isInventoryItem
@@ -57,6 +60,10 @@ class Item: Codable {
 
     func getPositiveResult() -> String {
         return self.positiveResult
+    }
+
+    func getSpeech() -> String {
+        return self.speech
     }
 
     func getTargetScene() -> Int {

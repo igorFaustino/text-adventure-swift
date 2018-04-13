@@ -13,7 +13,6 @@ class GameEngine {
 	var gameOver: String
 
 	init(filePath: String){
-		// initialized class.. without that we can't call any methods
 		self.file = FileHandle(forReadingAtPath: filePath)
 		self.data = self.file!.readDataToEndOfFile()
 		self.json = JSON(data: self.data)
@@ -36,7 +35,7 @@ class GameEngine {
 
 	func initGameFromFile() -> Game {
 		var scenes : [Scene] = []
-
+		playSong(songName: "554__bebeto__ambient-loop.mp3", params: ["--loop", "-1", "-q"])
 		// get all scene from a vector of scene
 		for (_, scene):(String, JSON) in self.json["scenes"] {
 			var itens: [Item] = []
@@ -48,6 +47,7 @@ class GameEngine {
 						description: item["description"].string!,
 						negativeResult: item["negativeResult"].string!,
 						positiveResult: item["positiveResult"].string!,
+						speech: item["speech"].string!,
 						targetScene: item["targetScene"].int!,
 						stocked: item["stocked"].bool!,
 						isInventoryItem: item["isInventoryItem"].bool!,
@@ -65,9 +65,13 @@ class GameEngine {
 				itens: itens,
 				endGame: scene["isEndGame"].bool!,
 				isQuick: scene["isQuick"].bool!,
-				time: scene["time"].int!
+				time: scene["time"].int!,
+				music: scene["music"].string!,
+				resolutionSong: scene["resolutionSong"].string!
 			))
 		}
+
+
 		return Game(
 			gameTitle: self.json["gameTitle"].string!,
 			gameDescription: self.json["gameDescription"].string!,
@@ -77,7 +81,6 @@ class GameEngine {
 	}
 
 	func loadGame(filePath: String) -> Bool{
-		// TODO: Test this function
 		let loadGameFile: FileHandle! = FileHandle(forReadingAtPath: filePath)
 		if (loadGameFile == nil){
 			print("Este save não existe...")
@@ -93,6 +96,7 @@ class GameEngine {
 				description: item["description"].string!,
 				negativeResult: item["negativeResult"].string!,
 				positiveResult: item["positiveResult"].string!,
+				speech: item["speech"].string!,
 				targetScene: item["targetScene"].int!,
 				stocked: item["stocked"].bool!,
 				isInventoryItem: item["isInventoryItem"].bool!,
@@ -110,6 +114,7 @@ class GameEngine {
 				description: item["description"].string!,
 				negativeResult: item["negativeResult"].string!,
 				positiveResult: item["positiveResult"].string!,
+				speech: item["speech"].string!,
 				targetScene: item["targetScene"].int!,
 				stocked: item["stocked"].bool!,
 				isInventoryItem: item["isInventoryItem"].bool!,
@@ -175,7 +180,7 @@ class GameEngine {
 	}
 
 	func processCommand(command: String) -> Bool {
-		let lowerCommand = command.lowercased()
+		let lowerCommand = command.lowercased().folding(options: .diacriticInsensitive, locale: .current)
 		if (command == "help"){
 			printHelp()
 		} else if (lowerCommand == "exit"){
@@ -220,7 +225,7 @@ class GameEngine {
 				let path = URL(fileURLWithPath: "./Sources/json/saves/" + answer! + ".json").path
 				saveGame(filePath: path)
 			}
-		} else if (lowerCommand == "use radio"){
+		} else if (lowerCommand == "radio"){
 			useRadio()
 		} else if (lowerCommand == "inventory"){
 			inventory.printInventory()
@@ -228,6 +233,8 @@ class GameEngine {
 			return checkItem(command: lowerCommand)
 		} else if (lowerCommand.range(of: "get") != nil){
 			return getItem(command: lowerCommand)
+		} else if (lowerCommand.range(of: "talk") != nil){
+			return talk(command: lowerCommand)
 		} else if (lowerCommand.range(of: "use") != nil && lowerCommand.range(of: "with") == nil){
 			return useItem(command: lowerCommand)
 		} else if (lowerCommand.range(of: "use") != nil && lowerCommand.range(of: "with") != nil){
@@ -237,6 +244,34 @@ class GameEngine {
 		}
 
 		return true
+	}
+
+	func playSong(songName: String, params: [String]) {
+		// if(songName != self.currentSong){
+			let song = Process()
+			song.launchPath = "/usr/bin/mpg123"
+			song.arguments = params + ["-q", "./Sources/songs/" + String(songName)]
+			song.launch()
+		// }
+	}
+
+	func playSongSync(songName: String) {
+		let song = Process()
+		song.launchPath = "/usr/bin/mpg123"
+		song.arguments = ["-q", "./Sources/songs/" + String(songName)]
+		song.launch()
+		song.waitUntilExit()
+	}
+
+	func stopSongs() {
+		let killall = Process()
+		killall.launchPath = "/usr/bin/killall"
+		killall.arguments = ["mpg123"]
+		killall.launch()
+	}
+
+	func playSceneSong(){
+		playSong(songName: self.game.getScene().getMusic(), params: ["--loop", "-1", "-q"])
 	}
 
 	func printScene() {
@@ -252,6 +287,7 @@ class GameEngine {
 	}
 
 	func gameExit(){
+		stopSongs()
 		system("clear")
 		exit(0)
 	}
@@ -265,7 +301,7 @@ class GameEngine {
 	// check item
 	func checkItem(command: String) -> Bool {
 		let commandSplit = command.split(separator:" ")
-		if(commandSplit.count < 2){
+		if(commandSplit.count != 2 || commandSplit[0] != "check"){
         	print("Não entendi o que você quis dizer...")
 			return true
 		}
@@ -283,7 +319,33 @@ class GameEngine {
 		let currentScene = self.game.getScene()
 		if(currentScene.getIsQuick()){
 			let stillTime = currentScene.passTime()
-			print(currentScene.getTime(), "jogadas restantes\n")
+			print(currentScene.getTime(), "jogadas restantes")
+			if (!stillTime){
+				endGame()
+			}
+			return stillTime
+		}
+		return true
+    }
+
+	func talk(command: String) -> Bool {
+		let commandSplit = command.split(separator:" ")
+		if(commandSplit.count != 2 || commandSplit[0] != "talk"){
+        	print("Não entendi o que você quis dizer...")
+			return true
+		}
+		let item = commandSplit[1]
+		let itemFromScene = game.getScene().searchItemScene(name: String(item))
+		if(itemFromScene != nil){
+			print(itemFromScene!.getSpeech())
+		} else {
+        	print("Não entendi o que você quis dizer...")
+			return true
+		}
+		let currentScene = self.game.getScene()
+		if(currentScene.getIsQuick()){
+			let stillTime = currentScene.passTime()
+			print(currentScene.getTime(), "jogadas restantes")
 			if (!stillTime){
 				endGame()
 			}
@@ -294,7 +356,7 @@ class GameEngine {
 
 	func getItem(command: String) -> Bool {
 		let commandSplit = command.split(separator:" ")
-		if(commandSplit.count < 2){
+		if(commandSplit.count != 2 || commandSplit[0] != "get"){
         	print("Não entendi o que você quis dizer...")
 			return true
 		}
@@ -320,7 +382,7 @@ class GameEngine {
 		let currentScene = self.game.getScene()
 		if(currentScene.getIsQuick()){
 			let stillTime = currentScene.passTime()
-			print(currentScene.getTime(), "jogadas restantes\n")
+			print(currentScene.getTime(), "jogadas restantes")
 			if (!stillTime){
 				endGame()
 			}
@@ -331,7 +393,7 @@ class GameEngine {
 
 	func useItemWith(command: String) -> Bool {
 		let commandSplit = command.split(separator:" ")
-		if(commandSplit.count < 2){
+		if(commandSplit.count != 4 || commandSplit[0] != "use" || commandSplit[2] != "with"){
         	print("Não entendi o que você quis dizer...")
 			return true
 		}
@@ -343,6 +405,7 @@ class GameEngine {
 		if(itemFromScene != nil && itemFromInventary != nil){
 			if(itemFromScene!.getCommand().lowercased() == command){
 				print(itemFromScene!.getPositiveResult())
+				playSongSync(songName: game.getScene().getResolutionSong())
 				game.setCurrentScene(value: itemFromScene!.getTargetScene())
 				inventory.deleteItem(name: itemFromInventary!.getName())
 				return true
@@ -356,7 +419,7 @@ class GameEngine {
 		let currentScene = self.game.getScene()
 		if(currentScene.getIsQuick()){
 			let stillTime = currentScene.passTime()
-			print(currentScene.getTime(), "jogadas restantes\n")
+			print(currentScene.getTime(), "jogadas restantes")
 			if (!stillTime){
 				endGame()
 			}
@@ -367,7 +430,7 @@ class GameEngine {
 
 	func useItem(command: String) -> Bool {
 		let commandSplit = command.split(separator:" ")
-		if(commandSplit.count < 2){
+		if(commandSplit.count != 2 || commandSplit[0] != "use"){
         	print("Não entendi o que você quis dizer...")
 			return true
 		}
@@ -376,6 +439,7 @@ class GameEngine {
 		if(itemFromScene != nil){
 			if(itemFromScene!.getCommand().lowercased() == command){
 				print(itemFromScene!.getPositiveResult())
+				playSongSync(songName: game.getScene().getResolutionSong())			
 				game.setCurrentScene(value: itemFromScene!.getTargetScene())
 				return true
 			} else {
@@ -388,7 +452,7 @@ class GameEngine {
 		let currentScene = self.game.getScene()
 		if(currentScene.getIsQuick()){
 			let stillTime = currentScene.passTime()
-			print(currentScene.getTime(), "jogadas restantes\n")
+			print(currentScene.getTime(), "jogadas restantes")
 			if (!stillTime){
 				endGame()
 			}

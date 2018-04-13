@@ -52,6 +52,7 @@ func gameMain(){
 	while(true){
 		// clear all the text in the bash
 		system("clear")
+		// system("gedit . &")
 
 		let path = URL(fileURLWithPath: "./Sources/json/game.json").path
 		let myGame = GameEngine(filePath: path)
@@ -71,8 +72,10 @@ func gameMain(){
 			if(myGame.getCurrentScene() != currentScene){
 				print("\n[Digite enter para continuar]")
 				_ = readLine()
+				myGame.stopSongs()
 				system("clear")
 				sleep(1)
+				myGame.playSceneSong()
 				myGame.printScene()
 				currentScene = myGame.getCurrentScene()
 			}
@@ -92,6 +95,7 @@ func gameMain(){
 			}
 		
 		}
+		myGame.stopSongs()
 
 	}
 

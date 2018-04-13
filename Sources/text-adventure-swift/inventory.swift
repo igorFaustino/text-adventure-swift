@@ -26,7 +26,7 @@ class Inventory{
 
     func searchItem(name: String) -> Item! {
         for item in self.vectorItens {
-            if (item.getName().lowercased() == name.lowercased()){
+            if (item.getName().lowercased().folding(options: .diacriticInsensitive, locale: .current) == name.lowercased().folding(options: .diacriticInsensitive, locale: .current)){
                 return item
             }
         }
