@@ -1,0 +1,50 @@
+{
+    "inventory": [
+        {
+            "stocked": true,
+            "description": "A vida é uma coisa muito complexa pra ser controlada e entendida, pode ser isso.",
+            "negativeResult": "Muito pesadas para levantar desse jeito, preciso fazer de outra forma.",
+            "id": 35,
+            "speech": "",
+            "key": false,
+            "positiveResult": "",
+            "name": "VIGAS",
+            "isInventoryItem": true,
+            "command": "USE VIGAS WITH PEDRAS",
+            "resolved": false,
+            "targetScene": 15
+        }
+    ],
+    "time": 0,
+    "sceneItens": [
+        {
+            "stocked": false,
+            "description": "Nossa como são pesadas não consigo mexer-las, eu preciso de um apoio, ou uma alavanca",
+            "negativeResult": "Não consigo mexer-las",
+            "id": 34,
+            "speech": "",
+            "key": false,
+            "positiveResult": "",
+            "name": "PEDRAS",
+            "isInventoryItem": false,
+            "command": "",
+            "resolved": false,
+            "targetScene": -1
+        },
+        {
+            "stocked": true,
+            "description": "A vida é uma coisa muito complexa pra ser controlada e entendida, pode ser isso.",
+            "negativeResult": "Muito pesadas para levantar desse jeito, preciso fazer de outra forma.",
+            "id": 35,
+            "speech": "",
+            "key": false,
+            "positiveResult": "",
+            "name": "VIGAS",
+            "isInventoryItem": true,
+            "command": "USE VIGAS WITH PEDRAS",
+            "resolved": false,
+            "targetScene": 15
+        }
+    ],
+    "currentScene": 14
+}
