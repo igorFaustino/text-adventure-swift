@@ -35,7 +35,7 @@ class GameEngine {
 
 	func initGameFromFile() -> Game {
 		var scenes : [Scene] = []
-		playSong(songName: "554__bebeto__ambient-loop.mp3", params: ["--loop", "-1", "-q"])
+		playSong(songName: "introducao.mp3", params: ["--loop", "-1", "-q"])
 		// get all scene from a vector of scene
 		for (_, scene):(String, JSON) in self.json["scenes"] {
 			var itens: [Item] = []
