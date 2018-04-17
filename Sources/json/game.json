@@ -11,7 +11,7 @@
 		{
 			"id": 0,
 			"title": "Biblioteca da Universidade de Liverpool - Inglaterra\n19 de outubro de 1983\n\n",
-			"description": "- A história começa na Biblioteca da Universidade de Liverpool, era uma tarde de quarta-feira, 1986, os raios de sol invadiam a sala, iluminando as longas mesas de madeira maciça, era fim de semestre, então o lugar estava borbulhando de jovens alunos debruçado nos livros, os que não seguiam essa linha, iam beber no bar do outro lado do campus, o \"Ás na Manga\", lá se servia cerveja preta e batata frita, um banquete para os embriagados, sempre tocavam o bom e velho Rock, ás vezes o som era tão alto que invadia o campus, e todos no patio eram contagiados pela musica, e dançavam como selvagens rebeldes a beira de uma revolução.\n- Mas que torna diferente um dia tão comum como quarta-feira, você pode estar se perguntando?\n\nVocê está em uma biblioteca,  há uma grande mesa de madeira a sua frente, um LIVRO e algumas ANOTAÇÕES suas estão espalhadas nela , a mesa está sendo iluminada pela luz do sol que invade a sala pela JANELA.",
+			"description": "- A história começa na Biblioteca da Universidade de Liverpool, era uma tarde de quarta-feira, 1986, os raios de sol invadiam a sala, iluminando as longas mesas de madeira maciça, era fim de semestre, então o lugar estava borbulhando de jovens alunos debruçado nos livros, os que não seguiam essa linha, iam beber no bar do outro lado do campus, o \"Ás na Manga\", lá se servia cerveja preta e batata frita, um banquete para os embriagados, sempre tocavam o bom e velho Rock, ás vezes o som era tão alto que invadia o campus, e todos no patio eram contagiados pela musica, e dançavam como selvagens rebeldes a beira de uma revolução.\n- Mas que torna diferente um dia tão comum como quarta-feira, você pode estar se perguntando?\n\nVocê está em uma biblioteca,  há uma grande mesa de madeira a sua frente, um LIVRO e algumas ANOTAÇÕES suas estão espalhadas nela , a mesa está sendo iluminada pela luz do sol que invade a sala pela JANELA.\n\n[Digite HELP para ver a lista de comandos]",
 			"isQuick": false,
 			"time": 0,
 			"music": "253947__bendthebasics__library-noises.mp3",
@@ -475,7 +475,7 @@
 					"stocked": false,
 					"resolved": false,
 					"key": false,
-					"command": "USE PEDRA WITH ARBUSTOS"
+					"command": "USE PEDRAS WITH ARBUSTOS"
 				},
 				{
 					"id": 9,
