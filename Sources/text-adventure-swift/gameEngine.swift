@@ -106,24 +106,41 @@ class GameEngine {
 			))
 		}
 		self.game.setCurrentScene(value: loadGameJson["currentScene"].int!)
-		var itens: [Item] = []
-		for (_, item):(String, JSON) in loadGameJson["sceneItens"] {
-			itens.append(Item(
-				id: item["id"].int!,
-				name: item["name"].string!,
-				description: item["description"].string!,
-				negativeResult: item["negativeResult"].string!,
-				positiveResult: item["positiveResult"].string!,
-				speech: item["speech"].string!,
-				targetScene: item["targetScene"].int!,
-				stocked: item["stocked"].bool!,
-				isInventoryItem: item["isInventoryItem"].bool!,
-				resolved: item["resolved"].bool!,
-				key: item["key"].bool!, 
-				command: item["command"].string!
+		var scenes: [Scene] = []
+		for (_, scene):(String, JSON) in self.json["scenes"] {
+			var itens: [Item] = []
+			// inside a scene get all the itens
+			for (_, item):(String, JSON) in scene["itens"] {
+				itens.append(Item(
+						id: item["id"].int!,
+						name: item["name"].string!,
+						description: item["description"].string!,
+						negativeResult: item["negativeResult"].string!,
+						positiveResult: item["positiveResult"].string!,
+						speech: item["speech"].string!,
+						targetScene: item["targetScene"].int!,
+						stocked: item["stocked"].bool!,
+						isInventoryItem: item["isInventoryItem"].bool!,
+						resolved: item["resolved"].bool!,
+            			key: item["key"].bool!, 
+            			command: item["command"].string!
+					)
+				)
+			}
+
+			scenes.append(Scene(
+				id: scene["id"].int!,
+				title: scene["title"].string!,
+				description: scene["description"].string!,
+				itens: itens,
+				endGame: scene["isEndGame"].bool!,
+				isQuick: scene["isQuick"].bool!,
+				time: scene["time"].int!,
+				music: scene["music"].string!,
+				resolutionSong: scene["resolutionSong"].string!
 			))
 		}
-		self.game.getScene().loadItens(itens: itens)
+		self.game.loadScenes(scenes: scenes)
 		if (self.game.getScene().getIsQuick()){
 			self.game.getScene().setTime(value: loadGameJson["time"].int!)
 		}
@@ -135,7 +152,7 @@ class GameEngine {
 		let saveStruct = SaveStruct(
 			inventory: self.inventory!.getItens(),
 			currentScene: self.game.getCurrentScene(),
-			sceneItens: self.game.getScene().getItens(),
+			scenes: self.game.getScenes(),
 			time: self.game.getScene().getTime()
 		)
 		let jsonEncoder = JSONEncoder()
@@ -363,12 +380,18 @@ class GameEngine {
 		let item = commandSplit[1]
 		let itemFromScene = game.getScene().searchItemScene(name: String(item))
 		if(itemFromScene != nil){
-			// TODO: Change function name
 			if(itemFromScene!.getIsInventoryItem()){
 				if(!itemFromScene!.getStocked()){
 					itemFromScene!.setStocked(state: true)
-					inventory.addItem(item: itemFromScene!)
-					print("O item foi adicionado ao inventario")
+
+					// check if the item is the same from another scene
+					let inventoryItem = inventory.searchItem(name: itemFromScene!.getName())
+					if (inventoryItem != nil && inventoryItem!.getId() == itemFromScene!.getId()){
+						print("Esse item já está comigo")					
+					} else {
+						inventory.addItem(item: itemFromScene!)
+						print("O item foi adicionado ao inventario")
+					}
 				} else {
 					print("Esse item já está comigo")					
 				}
@@ -404,11 +427,21 @@ class GameEngine {
 		let itemFromScene = game.getScene().searchItemScene(name: String(itemInScene))
 		if(itemFromScene != nil && itemFromInventary != nil){
 			if(itemFromScene!.getCommand().lowercased() == command){
-				print(itemFromScene!.getPositiveResult())
-				playSongSync(songName: game.getScene().getResolutionSong())
-				game.setCurrentScene(value: itemFromScene!.getTargetScene())
-				inventory.deleteItem(name: itemFromInventary!.getName())
-				return true
+				// check if itens was not solved yet
+				if (!itemFromScene!.getResolved()){
+					print(itemFromScene!.getPositiveResult())
+					playSongSync(songName: game.getScene().getResolutionSong())
+					game.setCurrentScene(value: itemFromScene!.getTargetScene())
+					if (!itemFromScene!.getKey()){
+						itemFromScene!.setResolved(state: true)
+					}
+					if (!itemFromInventary!.getKey()){
+						inventory.deleteItem(name: itemFromInventary!.getName())
+					}
+					return true
+				} else {
+					print("Não tenho mais nada para fazer com isto...")
+				}
 			} else {
 				print(itemFromScene!.getNegativeResult())
 			}
@@ -438,10 +471,18 @@ class GameEngine {
 		let itemFromScene = game.getScene().searchItemScene(name: String(item))
 		if(itemFromScene != nil){
 			if(itemFromScene!.getCommand().lowercased() == command){
-				print(itemFromScene!.getPositiveResult())
-				playSongSync(songName: game.getScene().getResolutionSong())			
-				game.setCurrentScene(value: itemFromScene!.getTargetScene())
-				return true
+				// check if itens was not solved yet
+				if (!itemFromScene!.getResolved()){
+					print(itemFromScene!.getPositiveResult())
+					playSongSync(songName: game.getScene().getResolutionSong())
+					game.setCurrentScene(value: itemFromScene!.getTargetScene())
+					if (!itemFromScene!.getKey()){
+						itemFromScene!.setResolved(state: true)
+					}
+					return true
+				} else {
+					print("Não tenho mais nada para fazer com isto...")
+				}
 			} else {
 				print(itemFromScene!.getNegativeResult())
 			}

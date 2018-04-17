@@ -87,7 +87,7 @@ class Item: Codable {
     }
     
     func getCommand() -> String {
-        return self.command
+        return self.command.folding(options: .diacriticInsensitive, locale: .current)
     }
 
     //Sets

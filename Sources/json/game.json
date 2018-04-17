@@ -497,11 +497,7 @@
 					"stocked": false,
 					"resolved": false,
 					"key": false,
-<<<<<<< HEAD
-					"command": "USE PEDRAS WITH ARBUSTOS"
-=======
 					"command": ""
->>>>>>> fba1b30d07c32e5366484c5f6a4b0ab5fa8e2a47
 				},
 				{
 					"id": 14,
@@ -946,7 +942,7 @@
 		{
 			"id": 15,
 			"title": "Câmara Principal das Ruínas",
-			"description": "/n/n- O lugar era enorme e cheio adornado de esculturas, ouro, marfim e muitas esculturas nas paredes. Três grandes portais existiam no lugar, cada entrada tinha um símbolo no topo, a entrada da esquerda tinham duas espadas, a do meio tinha um cetro com uma coroa e por o caminho da direita tinha uma corrente.\n\nAparentemente representava alguma expécie de classe social, as espadas o exército, o cétro e a coroa representavam a realeza e a religião, e a corda os escravos.\n\nVocê está na câmara principal das ruínas do palácio, existem três caminhos a frente para ser escolhidos, o caminho da ESPADA, do CETRO e da CORRENTE.\n\nEscolha estes caminhos livremente e ache a Orbe do Jaguar.",			
+			"description": "\n\n- O lugar era enorme e cheio adornado de esculturas, ouro, marfim e muitas esculturas nas paredes. Três grandes portais existiam no lugar, cada entrada tinha um símbolo no topo, a entrada da esquerda tinham duas espadas, a do meio tinha um cetro com uma coroa e por o caminho da direita tinha uma corrente.\n\nAparentemente representava alguma expécie de classe social, as espadas o exército, o cétro e a coroa representavam a realeza e a religião, e a corda os escravos.\n\nVocê está na câmara principal das ruínas do palácio, existem três caminhos a frente para ser escolhidos, o caminho da ESPADA, do CETRO e da CORRENTE.\n\nEscolha estes caminhos livremente e ache a Orbe do Jaguar.",			
 			"isQuick": false,
 			"time": 0,
 			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
@@ -963,7 +959,7 @@
 					"isInventoryItem": false,
 					"stocked": false,
 					"resolved": false,
-					"key": false,
+					"key": true,
 					"command": "USE ESPADA"
 				},
 				{
@@ -973,11 +969,11 @@
 					"negativeResult": "Não é dessa forma que se entra no lugar.",
 					"positiveResult": "Você esta seguindo o caminho do cetro",
 					"speech": "",
-					"targetScene": 19,
+					"targetScene": 21,
 					"isInventoryItem": false,
 					"stocked": false,
 					"resolved": false,
-					"key": false,
+					"key": true,
 					"command": "USE CETRO"
 				},
 				{
@@ -985,14 +981,14 @@
 					"name": "CORRENTE",
 					"description": "Entrada dos escravos e trabalhadores braçais.",
 					"negativeResult": "Não é dessa forma que se entra no lugar.",
-					"positiveResult": "Você esta seguindo o caminho da corda",
+					"positiveResult": "Você esta seguindo o caminho da corrente",
 					"speech": "",
-					"targetScene": 21,
+					"targetScene": 19,
 					"isInventoryItem": false,
 					"stocked": false,
 					"resolved": false,
-					"key": false,
-					"command": "USE CORRRENTE"
+					"key": true,
+					"command": "USE CORRENTE"
 				}
 			],
 			"isEndGame":false
@@ -1000,7 +996,7 @@
 		{
 			"id": 16,
 			"title": "Caminho da Espada",
-			"description": "/n/n- Passei pelo caminho da espada e tinha muitos desenho de guerreiros maias , e cenas de batalhas sangrentas ilustradas nos corredores. Ao fim do percurso cheguei a uma sala com uma mesa enorme, com várias cadeiras e várias CAVEIRAS sentadas.\n\nEspadas e capacetes pendurados na paredes laterais, e bem no centro estava em lugar de destaque um LANÇA de ouro, talvez fosse a LANÇA do general. Marquei o caminho em um PERGAMINHO para não se perder por entre as salas e poder voltar para a câmara principal.\n\nVocê está em na sala de operações militares do imperador, aqui era onde toda a questão sobre o exército e as guerras eram tratadas. Algumas CAVEIRAS de antigos generais e conselheiros de guerra, estão sentados a mesa. Muitas armas estão dispostas na sala, algumas ESPADAS, a LANÇA de ouro e uma ALABARDA.",			
+			"description": "\n\n- Passei pelo caminho da espada e tinha muitos desenho de guerreiros maias , e cenas de batalhas sangrentas ilustradas nos corredores. Ao fim do percurso cheguei a uma sala com uma mesa enorme, com várias cadeiras e várias CAVEIRAS sentadas.\n\nEspadas e capacetes pendurados na paredes laterais, e bem no centro estava em lugar de destaque um LANÇA de ouro, talvez fosse a LANÇA do general. Marquei o caminho em um PERGAMINHO para não se perder por entre as salas e poder voltar para a câmara principal.\n\nVocê está em na sala de operações militares do imperador, aqui era onde toda a questão sobre o exército e as guerras eram tratadas. Algumas CAVEIRAS de antigos generais e conselheiros de guerra, estão sentados a mesa. Muitas armas estão dispostas na sala, algumas ESPADAS, a LANÇA de ouro e uma ALABARDA.",			
 			"isQuick": false,
 			"time": 0,
 			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
@@ -1073,7 +1069,7 @@
 					"isInventoryItem": true,
 					"stocked": false,
 					"resolved": false,
-					"key": false,
+					"key": true,
 					"command": "USE PERGAMINHO"
 				}
 			],
@@ -1104,7 +1100,7 @@
 					"command": "USE ALABARDA WITH CAVEIRAS"
 				},
 				{
-					"id": 43,
+					"id": 38,
 					"name": "ESPADAS",
 					"description": "Espadas curiosas.",
 					"negativeResult": "Não é assim que se usa as espadas. Como essas espadas estão cegas, elas não devem cortar nada. ",
@@ -1118,7 +1114,7 @@
 					"command": ""
 				},
 				{
-					"id": 44,
+					"id": 39,
 					"name": "LANÇA",
 					"description": "A lança de ouro deve ter um valor inestimável, irei leva-la comigo",
 					"negativeResult": "Não é dessa forma que se usa a lança",
@@ -1129,12 +1125,12 @@
 					"stocked": false,
 					"resolved": false,
 					"key": false,
-				"command": ""
+					"command": ""
 				},
 				{
-					"id": 45,
+					"id": 40,
 					"name": "ALABARDA",
-					"description": "Espadas curiosas.",
+					"description": "Esta arma que mais parece uma lança, com um machado na ponta. Deve ter feito muitos estragos.",
 					"negativeResult": "Não é dessa forma que se usa a alabarda",
 					"positiveResult": "",
 					"speech": "",
@@ -1144,20 +1140,6 @@
 					"resolved": false,
 					"key": false,
 					"command": ""
-				},
-				{
-					"id":46,
-					"name": "PERGAMINHO",
-					"description": "Não posso perder isso, ele mostra o caminho.",
-					"negativeResult": "Não é dessa forma que se o pergaminho",
-					"positiveResult": "Você esta voltando para a câmara principal",
-					"speech": "",
-					"targetScene": 15,
-					"isInventoryItem": true,
-					"stocked": false,
-					"resolved": false,
-					"key": false,
-					"command": "USE PERGAMINHO"
 				}
 			],
 			"isEndGame":false
@@ -1173,7 +1155,7 @@
 			"resolutionSong": "361167__funwithsound__door-slam.mp3",
 			"itens": [
 				{
-					"id": 47,
+					"id": 39,
 					"name": "LANÇA",
 					"description": "A lança de ouro deve ter um valor inestimável, irei leva-la comigo",
 					"negativeResult": "Não é dessa forma que se usa a lança",
@@ -1223,7 +1205,7 @@
 					"isInventoryItem": true,
 					"stocked": false,
 					"resolved": false,
-					"key": false,
+					"key": true,
 					"command": ""
 				},
 				{
@@ -1237,12 +1219,12 @@
 					"isInventoryItem": true,
 					"stocked": false,
 					"resolved": false,
-					"key": false,
+					"key": true,
 					"command": "USE PERGAMINHO"
 				},
 				{
 					"id": 51,
-					"name": "ESCULTURA",
+					"name": "ESTATUA",
 					"description": "Mas uma estatua.",
 					"negativeResult": "Não é dessa forma que se o pergaminho",
 					"positiveResult": "Você esta voltando para a câmara principal",
@@ -1251,8 +1233,8 @@
 					"isInventoryItem": true,
 					"stocked": false,
 					"resolved": false,
-					"key": false,
-					"command": "USE CORDA WITH ESCULTURA"
+					"key": true,
+					"command": "USE CORDA WITH ESTATUA"
 				}
 			],
 			"isEndGame":false
@@ -1260,7 +1242,7 @@
 		{
 			"id": 20,
 			"title": "Caminho da Corrente",
-			"description": "\n\n -Atravessei a grande fenda no chão e fui através da passagem escura até encontra um pequeno depósito, com vários baús cheios de areia preta, mas conhecida como PÓLVORA, muito provavelmente eles usavam para minerar nas montanhas questão nos arredores.\n\n - Só havia aquela sala, e mais nenhuma saida que levasse para outro lugar. Usei então meu pergaminho para voltar para a câmara principal. Caramba essa CORDA me ajudou muito a explorar esse lugar.\n\n Não existe mais salas a partir desse ponto.",			
+			"description": "\n\n -Atravessei a grande fenda no chão e fui através da passagem escura até encontra um pequeno depósito, com vários baús cheios de areia preta, mas conhecida como PÓLVORA, muito provavelmente eles usavam para minerar nas montanhas questão nos arredores.\n\n - Só havia aquela sala, e mais nenhuma saida que levasse para outro lugar. Usei então meu PERGAMINHO para achar o caminho de volta para a câmara principal. Caramba essa corda me ajudou muito a explorar esse lugar, vou mante-la comigo!.\n\n Não existe mais salas a partir desse ponto.",			
 			"isQuick": false,
 			"time": 0,
 			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
@@ -1277,7 +1259,7 @@
 					"isInventoryItem": true,
 					"stocked": false,
 					"resolved": false,
-					"key": false,
+					"key": true,
 					"command": "USE PERGAMINHO"
 				},
 				{
@@ -1311,13 +1293,13 @@
 					"name": "PORTA",
 					"description": "A porta esta trancada",
 					"negativeResult": "Você não vai abri-la dessa maneira",
-					"positiveResult": "A porta esta aberta",
+					"positiveResult": "A lança se encaixou perfeitamente, funcionando assim como uma chave para destrancar a porta",
 					"speech": "",
 					"targetScene": 22,
 					"isInventoryItem": false,
 					"stocked": false,
 					"resolved": false,
-					"key": false,
+					"key": true,
 					"command": "USE LANÇA WITH PORTA"
 				},
 				{
@@ -1351,10 +1333,10 @@
 					"name": "ORBE",
 					"description": "Finalmente depois todos esse anos perdidos, eu o encontrei",
 					"negativeResult": "Esta usando do jeito errado",
-					"positiveResult": "Você esta em posse do Orbe do Jaguar, use o com sabedoria. Com grandes poderes vem grandes responsabilidades. Fique esperto.",
+					"positiveResult": "-Eu finalmente tinha alcançado meu objetivo, mas não seria tão facil assim...",
 					"speech": "",
 					"targetScene": 23,
-					"isInventoryItem": true,
+					"isInventoryItem": false,
 					"stocked": false,
 					"resolved": false,
 					"key": false,
@@ -1391,7 +1373,7 @@
 					"name": "FENDA",
 					"description": "Eu só preciso passar por vocẽ para sair",
 					"negativeResult": "Esta usando do jeito errado",
-					"positiveResult": "Você esta em posse do Orbe do Jaguar, use o com sabedoria. Com grandes poderes vem grandes responsabilidades. Fique esperto.",
+					"positiveResult": "Você consegue explodir a fenda, criando assim uma passagem grande o bastante para sair deste maldito templo, você esta em posse do Orbe do Jaguar, use o com sabedoria. Com grandes poderes vem grandes responsabilidades.",
 					"speech": "",
 					"targetScene": 24,
 					"isInventoryItem": false,
@@ -1405,7 +1387,7 @@
 					"name": "BURACO",
 					"description": "Eu só preciso passar por vocẽ para sair",
 					"negativeResult": "Esta usando do jeito errado",
-					"positiveResult": "Você esta usando as VIGAS como alavanca para aumentar o tamanho da fenda e sair. Agora esta em posse do Orbe do Jaguar, use-o com sabedoria. Com grandes poderes vem grandes responsabilidades. Fique esperto.",
+					"positiveResult": "Você esta usando as VIGAS como alavanca para aumentar o tamanho da fenda e sair. Agora esta em posse do Orbe do Jaguar, use-o com sabedoria. Com grandes poderes vem grandes responsabilidades.",
 					"speech": "",
 					"targetScene": 24,
 					"isInventoryItem": false,
@@ -1425,8 +1407,7 @@
 			"time": 0,
 			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
 			"resolutionSong": "361167__funwithsound__door-slam.mp3",
-			"itens": [
-			],
+			"itens": [],
 			"isEndGame":true
 		}
 		

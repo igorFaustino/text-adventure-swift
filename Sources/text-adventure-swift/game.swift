@@ -1,7 +1,7 @@
 class Game {
 	let gameTitle: String
 	let gameDescription: String
-	let scenes: [Scene]
+	var scenes: [Scene]
 	var currentScene: Int
 
 	init(gameTitle: String, gameDescription: String, currentScene: Int, scenes: [Scene]){
@@ -15,8 +15,16 @@ class Game {
 		return self.scenes[self.currentScene]
 	}
 
+	func getScenes() -> [Scene] {
+		return self.scenes
+	}
+
 	func setCurrentScene(value: Int) {
 		self.currentScene = value
+	}
+
+	func loadScenes(scenes: [Scene]) {
+		self.scenes = scenes
 	}
 
 	func printScene() {

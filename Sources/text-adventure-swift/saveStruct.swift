@@ -1,6 +1,6 @@
 struct SaveStruct: Codable {
 	var inventory: [Item]
 	var currentScene: Int
-	var sceneItens: [Item]
+	var scenes: [Scene]
 	var time: Int
 }
