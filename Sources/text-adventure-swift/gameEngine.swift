@@ -263,6 +263,9 @@ class GameEngine {
 		return true
 	}
 
+	/**
+	* play a song
+	*/
 	func playSong(songName: String, params: [String]) {
 		// if(songName != self.currentSong){
 			let song = Process()
@@ -272,6 +275,9 @@ class GameEngine {
 		// }
 	}
 
+	/**
+	* play a song and wait finish
+	*/
 	func playSongSync(songName: String) {
 		let song = Process()
 		song.launchPath = "/usr/bin/mpg123"
@@ -280,6 +286,9 @@ class GameEngine {
 		song.waitUntilExit()
 	}
 
+	/**
+	* kill the mpg proccess
+	*/
 	func stopSongs() {
 		let killall = Process()
 		killall.launchPath = "/usr/bin/killall"
@@ -287,6 +296,9 @@ class GameEngine {
 		killall.launch()
 	}
 
+	/**
+	* play the scene background song
+	*/
 	func playSceneSong(){
 		playSong(songName: self.game.getScene().getMusic(), params: ["--loop", "-1", "-q"])
 	}
@@ -299,23 +311,36 @@ class GameEngine {
 		print(self.gameOver)
 	}
 
+	/**
+	* check if game reach the end
+	*/
 	func isEndGame() -> Bool {
 		return self.game.getScene().isEndGame()
 	}
 
+	/**
+	* exit game
+	*/
 	func gameExit(){
 		stopSongs()
 		system("clear")
 		exit(0)
 	}
 
+	/**
+	* game over
+	*/
 	func endGame(){
 		printGameOver()
 		print("\n[Digite enter para continuar]")
 		_ = readLine()
 	}
 
-	// check item
+	/**
+	* check item
+	* print the description text
+	* return true if the game still running
+	*/
 	func checkItem(command: String) -> Bool {
 		let commandSplit = command.split(separator:" ")
 		if(commandSplit.count != 2 || commandSplit[0] != "check"){
@@ -345,6 +370,11 @@ class GameEngine {
 		return true
     }
 
+	/**
+	* talk to people
+	* print the speech text
+	* return true if the game still running
+	*/
 	func talk(command: String) -> Bool {
 		let commandSplit = command.split(separator:" ")
 		if(commandSplit.count != 2 || commandSplit[0] != "talk"){
@@ -371,6 +401,11 @@ class GameEngine {
 		return true
     }
 
+	/**
+	* add a item to the inventory
+	* check if the item can be add
+	* return true if the game still running
+	*/
 	func getItem(command: String) -> Bool {
 		let commandSplit = command.split(separator:" ")
 		if(commandSplit.count != 2 || commandSplit[0] != "get"){
@@ -414,6 +449,12 @@ class GameEngine {
 		return true
 	}
 
+	/**
+	* use inventory item with other
+	* check if the command is correct
+	* if item is not a key item, mark as solved
+	* return true if the game still running
+	*/
 	func useItemWith(command: String) -> Bool {
 		let commandSplit = command.split(separator:" ")
 		if(commandSplit.count != 4 || commandSplit[0] != "use" || commandSplit[2] != "with"){
@@ -461,6 +502,12 @@ class GameEngine {
 		return true
 	}
 
+	/**
+	* use item
+	* check if the command is correct
+	* if item is not a key item, mark as solved
+	* return true if the game still running
+	*/
 	func useItem(command: String) -> Bool {
 		let commandSplit = command.split(separator:" ")
 		if(commandSplit.count != 2 || commandSplit[0] != "use"){
@@ -503,6 +550,9 @@ class GameEngine {
 	}
 }
 
+/**
+* test if the answer is positive
+*/
 func afirmativeAnswer(answer: String) -> Bool {
 	if (answer == "sim" || answer == "Sim" || answer == "yes" || answer == "Yes"){
 		return true
@@ -510,6 +560,9 @@ func afirmativeAnswer(answer: String) -> Bool {
 	return false
 }
 
+/**
+* test if the answer is negative
+*/
 func negativeAnswer(answer: String) -> Bool {
 	if (answer == "não" || answer == "Não" || answer == "no" || answer == "No" || answer == "nao" || answer == "Nao"){
 		return true
