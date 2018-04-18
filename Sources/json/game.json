@@ -1,5 +1,5 @@
 {
-	"gameTitle": "---------------------------\n-----  Nathan Black e a Orbe do Jaguar -----\n---------------------------\n",
+	"gameTitle": "--------------------------------------------\n-----  Nathan Black e a Orbe do Jaguar -----\n--------------------------------------------\n",
 	"gameDescription": "Algum bar dos Estados Unidos\nDia qualquer\n\n- Meu nome é Nathan Black e sou um caçador de recompensas, viajei o mundo todo, lutando contra soviéticos, sociedades secretas, ditadores e criaturas inimagináveis. Cheguei aos confins da terra , onde céu e terra são um só, eu vi a cara da morte várias vezes, ela sedutora e mortal, mas não caía nos jogos dela, porque será tarde demais. Contei com a sorte e meu charme para escapar das maiores armadilhas do destino.\n- Talvez você não acredite, Meu Jovem, mas a história que eu vou contar supera os seus maiores sonhos, a busca pelo Orbe do Jaguar, uma peça de origem lendária, que muitos pensavam ser forjada pelos Deuses Maias e possuir poderes inimagináveis, diversas expedições foram realizadas, vários amigos morreram almejando o inalcançável item perdido. Minha equipe inteira foi assassinada no processo, sou o último sobrevivente dessa tragédia, ainda me lembro de cada morte e cada sacrificío que eles fizeram para que eu estivesse aqui.(Vocês não morreram em vâo meus irmãos, eu viverei por vocês!)",
 	"radioMessages": [
 		"Radio fora do ar",
@@ -91,7 +91,7 @@
 			"isQuick": false,
 			"time": 0,
 			"music": "264295__foolboymedia__sky-loop.mp3",
-			"resolutionSong": "416179__inspectorj__book-flipping-through-pages-a.mp3",
+			"resolutionSong": "pergaminho.mp3",
 			"itens": [
 				{
 					"id": 3,
@@ -116,7 +116,7 @@
 			"description": "- As coordenadas do livro, levavam para uma vila pequena no sul do México, chamada de Chalalachola, um lugar pacato, com selvas densas, e animais peculiares e venenosos, a beleza exuberante do lugar escondia um perigo ainda maior que estava pela frente, os homens mais destemidos sucumbiriam a uma simples picada de uma aranha gigante, capaz de matar centenas de homens com uma singela gota mortal de veneno.\n- Então antes de mais nada seria necessário, buscar um guia, um morador local, capaz de viajar pela selva inexplorada, de uma maneira mais segura. Adentrei a cidade e vi o retrato de uma vila interiorana, os  habitantes que transitavam o lugar, usavam ponchos longos, coloridos, sempre estavam com um cavalo ou uma lhama, aparentemente o meio de transporte popular do local. Odeio lhamas, uma vez no Peru, uma criatura dessas mal encaradas, investiu em minha direção, e cuspiu na minha cara toda. Desde então tenho aversão a este ser maldito.\n- O sol estava no topo do Céu, um ótimo momento na rua principal do vilarejo, onde dezenas de pessoas estão perambulando, oportunidade perfeita para achar o guia.\n\nVocê esta na rua principal da vila, varias pessoas andando, CRIANÇAS brincando, vendendores ambulantes, uma SENHORA vendendo tomates, musicos ao longo do trecho tocando flauta, um MERCADOR de tecido esta ao seu lado direito.",
 			"isQuick": false,
 			"time": 0,
-			"music": "264295__foolboymedia__sky-loop.mp3",
+			"music": "mercado.mp3",
 			"resolutionSong": "361167__funwithsound__door-slam.mp3",
 			"itens": [
 				{
@@ -335,7 +335,7 @@
 			"isQuick": false,
 			"time": 0,
 			"music": "31487__lonemonk__bar-crowd-logans-pub-feb-2007.mp3",
-			"resolutionSong": "416179__inspectorj__book-flipping-through-pages-a.mp3",
+			"resolutionSong": "pergaminho.mp3",
 			"itens": [
 				{
 					"id": 8,
@@ -360,8 +360,8 @@
 			"description": "- A jornada começava agora, nos encontramos na árvore torta, e seguimos em direção da selva, a viagem seria de algumas semanas selva à dentro, eu não sabia que criaturas encontraria ali, talvez um puma faminto, ou cobras monstruosas. A vegetação densa conseguia encobrir todos os perigos que nos cercavam. Mas sabia que enquanto Rose estivesse ali comigo tudo ficar bem.\n- Andamos várias horas em baixo de um sol infernal, conforme a viagem se desenrolava, a durona Rose se mostrava mais afetiva, a nossa convivência originaria uma relação mais pronfunda mesmo ela não percebendo\n\n\"Ouvi alguma coisa, estranha nos arbusto, fica esperto molenga\"\n\nVocê esta andando com a Rose pela selva em uma trilha não muito aberta, cercada por ARBUSTOS e árvores, algumas PEDRAS.",
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "floresta1.mp3",
+			"resolutionSong": "Puma.mp3",
 			"itens": [
 				{
 					"id": 9,
@@ -401,7 +401,7 @@
 			"isQuick": true,
 			"time": 3,
 			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"resolutionSong": "pantera.mp3",
 			"itens": [
 				{
 					"id": 9,
@@ -483,7 +483,7 @@
 			"isQuick": false,
 			"time": 0,
 			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"resolutionSong": "cobra.mp3",
 			"itens": [
 				{
 					"id": 13,
@@ -607,8 +607,8 @@
 			"description":"\n\n- A COBRA saltou da árvore como muita velocidade, ela deveria ter uns 6 metros de comprimento, não conhecia a espécie, só sei que fugir não era uma opção, porque ela era muito rápida e estava sendenta pela minha carne e meu sangue.\n\n- Entao tomei coragem e fui atras de um PAU, ou alguma FACA no meio das minhas coisas dentro da bolsa, qualquer coisa para matar aquela criatura.",
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "floresta2.mp3",
+			"resolutionSong": "cobra.mp3",
 			"itens": [
 				{
 					"id": 20,
@@ -661,8 +661,8 @@
 			"description": "\n\n- A selva não estava para brincadeiras, eu estava esquecendo de levar a LENHA para fazer a fogueira. Mas a luta com a cobra, me fez ver alguns detalhes no ambiente que me passou por despercebido em meio a vegetação e aos arbustos tinham algumas pedras grandes lisas, alguns esculturas de animais quebradas no chão. Sai explorando em meio as árvores e finalmente depois de vários dias de expedição, finalmente tinha encontrado as ruínas do palácio perdido. Peguei um PAPEL para marcar o caminho, e voltei para Rose.",			
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "florestaNoite.mp3",
+			"resolutionSong": "pergaminho.mp3",
 			"itens": [
 				{
 					"id": 22,
@@ -701,8 +701,8 @@
 			"description": "\n\n\"Que demora para buscar alguns gravetos, acabei buscando eu mesma, acabou as migalhas de pão e se perdeu pelo caminho? hahahahhah\"\n\n- Estava passeando pela mata, abraçando algumas árvores, aproveitando as coisas que a natureza nos dá, você deveria tentar\n\n\"Está bem, senhor natureba, ande logo com a fogueira, pegue os FOSFOROS na bolsa, e queime logo essas MADEIRAS que eu peguei.\"\n\n- Enquanto eu estava andando pela selva buscando lenha para fogueira, encontrei as ruinas do palácio, amanhã de manhã iremos até la, não é muito longe daqui.",			
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "florestaNoite.mp3",
+			"resolutionSong": "fogueira.mp3",
 			"itens": [
 				{
 					"id": 24,
@@ -737,12 +737,12 @@
 		},
 		{
 			"id": 12,
-			"title": "Selva dos Condenados",
+			"title": "Ruínas do Pálacio",
 			"description": "\n\n- A carne puma assado preparado pela Rose estava maravilhosa, não imaginava que ela fosse uma boa cozinheira, trocamos histórias e experiências que trilhamos nas nossas vidas, trocamos muitas coisas naquela noite.\n\n- Ao amanhecer organizamos nossas coisas e seguimos enfrente pela trilha ate as ruínas. A paisagem em volta era deslumbrante, uma construção com pedras gigantes polidas, com uma escadaria imensa, em volta do lugar as paredes eram cheias de pinturas, e inscrições. O lugar era cercado pela selva toda.\n\nVocê está ao lado de Rose explorando o lugar, no fim da escadaria tem a ENTRADA do palácio, em volta algumas PINTURAS, INSCRIÇÕES e ESCULTURAS de animais.",			
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "ruinas.mp3",
+			"resolutionSong": "",
 			"itens": [
 				{
 					"id": 25,
@@ -809,8 +809,8 @@
 			"description": "\n\n- Enquanto exploravamos o lugar e achamos alguma inscrições que talvez possa nos ajudar a entrar, era uma espécie de dialeto maia antigo, eu conhecia um pouco a língua devido as minhas pesquisa sobre a civilização.\n\n\"O que são esses desenhos, você consegue ler?\"\n\n- Consigo ler com certa dificuldade, mas consigo ler. Aqui diz \n\n\"Esta acima do nosso entendimento e controle, esta acima de nós. Empure a maçaneta de pedra e entre\"\n\nA sua frente esta uma parede com 6 circulos de pedras, cada um com um símbolo diferente, os símbolos das maçaneta são SOL, TEMPO, MORTE, PANTERA, ESPADA e a VIDA.\n\nAs ruínas estão cheias de armadilhas, cada passo e decisão devem ser tomados com cuidado.\n\n Escolha a maçaneta de pedra correta, ou morra tentando.",			
 			"isQuick": true,
 			"time": 4,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "ruinas.mp3",
+			"resolutionSong": "macaneta_de_pedra.mp3",
 			"itens": [
 				{
 					"id": 28,
@@ -905,8 +905,8 @@
 			"description": "\n\n- Nós passamos por um corredor todo desenhado por figuras que representavam o cotidiano do lugar, era impressionante como o lugar estava bem preservado, mesmo com milhares de ano perdido no tempo.\n\n- Enquanto andavamos pelo túnel, acabei pisando em uma pedra solta no chão que acabou desparando a primeira armadilha.\n\n Quando a pedra afundou no chão, um grande estalo se ouviu, o tunel começou a tremer, uma parede extra estava surgindo rapidamente para impedir nossa passagem.\n\n- Corremos pelo corredor, eu estava na frente enquanto Rose estava cuidando da retaguarda.\n\n Nós nos aproximamos da porta se fechando, nos ultimos instantes em que a parede se fechava, tive o reflexo de pular para passar a parede que estava me fechando.\n\nInfelismente Rose não conseguiu passar, a parede fechou em instantes depois da minha passagem por ela.\n\n\"Não se preocupe ainda temos o rádio, ele esta na sua bolsa, posso te ajudar mesmo não estando ao seu lado, ficarei te esperando do lado de fora.\"\n\n- Eu vou tomar cuidado, só fique com o rádio ligado para gente conversar.\n\n Você esta chegando ao fim do corredor, mas eles ta bloqueado por algumas PEDRAS, no túnel onde você esta tem algumas VIGAS de Madeira, talvez seja util.",			
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "desmoronamento.mp3",
+			"resolutionSong": "stone_door.mp3",
 			"itens": [
 				{
 					"id": 34,
@@ -945,8 +945,8 @@
 			"description": "\n\n- O lugar era enorme e cheio adornado de esculturas, ouro, marfim e muitas esculturas nas paredes. Três grandes portais existiam no lugar, cada entrada tinha um símbolo no topo, a entrada da esquerda tinham duas espadas, a do meio tinha um cetro com uma coroa e por o caminho da direita tinha uma corrente.\n\nAparentemente representava alguma expécie de classe social, as espadas o exército, o cétro e a coroa representavam a realeza e a religião, e a corda os escravos.\n\nVocê está na câmara principal das ruínas do palácio, existem três caminhos a frente para ser escolhidos, o caminho da ESPADA, do CETRO e da CORRENTE.\n\nEscolha estes caminhos livremente e ache a Orbe do Jaguar.",			
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "camara_principal.mp3",
+			"resolutionSong": "",
 			"itens": [
 				{
 					"id": 34,
@@ -999,8 +999,8 @@
 			"description": "\n\n- Passei pelo caminho da espada e tinha muitos desenho de guerreiros maias , e cenas de batalhas sangrentas ilustradas nos corredores. Ao fim do percurso cheguei a uma sala com uma mesa enorme, com várias cadeiras e várias CAVEIRAS sentadas.\n\nEspadas e capacetes pendurados na paredes laterais, e bem no centro estava em lugar de destaque um LANÇA de ouro, talvez fosse a LANÇA do general. Marquei o caminho em um PERGAMINHO para não se perder por entre as salas e poder voltar para a câmara principal.\n\nVocê está em na sala de operações militares do imperador, aqui era onde toda a questão sobre o exército e as guerras eram tratadas. Algumas CAVEIRAS de antigos generais e conselheiros de guerra, estão sentados a mesa. Muitas armas estão dispostas na sala, algumas ESPADAS, a LANÇA de ouro e uma ALABARDA.",			
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "caminho_espada.mp3",
+			"resolutionSong": "ossos.mp3",
 			"itens": [
 				{
 					"id": 37,
@@ -1081,8 +1081,8 @@
 			"description": "\n\n- Fiquei um bom tempo explorando a sala de guerra, procurando informações sobre a orbe ou de algum possível mapa do palácio, o que seria muito útil se eu conseguisse. Um ar frio e sombrio tomou conta da sala, ouvia-se o ranger de dentes e estalos sinistros. De repente os montes de ossos sentados, começaram a se mover e a tomar vida. Caveiras ambulantes por essa eu não esperava.\n\n-Você está em na sala de operações militares do imperador, aqui era onde toda a questão sobre o exército e as guerras eram tratadas. Algumas CAVEIRAS de antigos generais e conselheiros de guerra voltaram a vida e estão prontos para lutar e defender o lugar. Muitas armas estão disposta na sala, algumas ESPADAS, a LANÇA de ouro e uma ALABARDA. Boa sorte!",			
 			"isQuick": true,
 			"time": 3,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "caveiras.mp3",
+			"resolutionSong": "espadas.mp3",
 			"itens": [
 				
 				{
@@ -1151,8 +1151,8 @@
 			"description": "\n\n- As caveiras era generais dos seus tempos,eram incriveis guerreiros, a luta foi dura e os ossos não se partiam, e também não se cansavam. Mas no fim as armas deles culminaram no próprio fim. Pois o arsenal que havia na sala foi muito util para mim durante a luta. A LANÇA de ouro me intriga, como deixaram um item tão valioso para traś.!\n\n- Vou voltar para a Câmara principal, já não ha mais nada aqui para explorar.\n\nNão ha mais saida nesta sala, a não ser a entrada por onde você entrou. O PERGAMINHO tem o caminho que leva de volta para a câmara principal.",			
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "caminho_espada.mp3",
+			"resolutionSong": "pergaminho.mp3",
 			"itens": [
 				{
 					"id": 39,
@@ -1191,8 +1191,8 @@
 			"description": "\n\n- Um lugar muito espaçoso, pena que era usado para os escravos trabalharem, serem puníndos e ainda desmaiar por conta das noites anteriores sem durmir.\n\n O lugar era um pouco mais sujo que os demais, somente tinha uma tocha na parede e uma CORDA em cima da mesa, e uma passagem escura. No fundo da sala foi encontrada uma passagem escura. O PERGAMINHO carrega o caminho de volta para câmara principal.\n\n -Depois de ver toda a sala segui em frente pela passagem escura, uma grande fenda no chão no caminho tranquilo, mas eu tinha que pular e explorar o outro lado. Mas era muito profundo e extenso, do outro lado havia uma ESTATUA de um homem segurando uma lança, ao lado de uma escura passagem.",			
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "caminho_corrente.mp3",
+			"resolutionSong": "corda.mp3",
 			"itens": [
 				{
 					"id": 49,
@@ -1212,8 +1212,8 @@
 					"id": 50,
 					"name": "PERGAMINHO",
 					"description": "Não posso perder isso, ele mostra o caminho.",
-					"negativeResult": "Não é dessa forma que se o pergaminho",
-					"positiveResult": "Você esta voltando para a câmara principal",
+					"negativeResult": "Não é dessa forma que se o pergaminho.",
+					"positiveResult": "Você esta voltando para a câmara principal.",
 					"speech": "",
 					"targetScene": 15,
 					"isInventoryItem": true,
@@ -1226,8 +1226,8 @@
 					"id": 51,
 					"name": "ESTATUA",
 					"description": "Mas uma estatua.",
-					"negativeResult": "Não é dessa forma que se o pergaminho",
-					"positiveResult": "Você esta voltando para a câmara principal",
+					"negativeResult": "Estatuas não são usadas assim.",
+					"positiveResult": "Você esta saltou uma grande fenda, usando uma corda amarrada em uma estatua.",
 					"speech": "",
 					"targetScene": 20,
 					"isInventoryItem": true,
@@ -1245,8 +1245,8 @@
 			"description": "\n\n -Atravessei a grande fenda no chão e fui através da passagem escura até encontra um pequeno depósito, com vários baús cheios de areia preta, mas conhecida como PÓLVORA, muito provavelmente eles usavam para minerar nas montanhas questão nos arredores.\n\n - Só havia aquela sala, e mais nenhuma saida que levasse para outro lugar. Usei então meu PERGAMINHO para achar o caminho de volta para a câmara principal. Caramba essa corda me ajudou muito a explorar esse lugar, vou mante-la comigo!.\n\n Não existe mais salas a partir desse ponto.",			
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "caminho_corrente.mp3",
+			"resolutionSong": "corda.mp3",
 			"itens": [
 				{
 					"id":44 ,
@@ -1285,8 +1285,8 @@
 			"description": "\n\n -Quanto ouro tinha aquele lugar, as paredes brilhavam como estrelas. A realeza realemente tinha um bom gosto para a decoração, segui pela sala adimirando as riquesas do lugar, até chegar em uma PORTA que só tinha uma abertura estranha no meio, com um formato de diamante. Eu ja vi isso em algum lugar.\n\nVocê esta na sala dos sacerdotes e ententidades religiosas do palácio,um grande trono dourado esta em seu lado direito com um CETRO recostado nele, tem uma grande PORTA a frente, encontrei a chave para abrir-la. Nem sempre a chave tem o formato que nós esperamos que ela seja.",			
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "caminho_cetro.mp3",
+			"resolutionSong": "stone_door.mp3",
 			"itens": [
 				{
 					"id":45 ,
@@ -1325,8 +1325,8 @@
 			"description": "\n\n - A porta se abriu e uma feixe de luz azul saiu daquela porta, quase me cegando completamente, o lugar onde estava era a câmara do imperador no meio havia um pequeno pedestal que estava sustentando uma jóia esférica azul marinho. O que estava diante dos meus olhos era desejo de dezenas de pessoas, o inalcançável ORBE do jaguar.",			
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "caminho_cetro.mp3",
+			"resolutionSong": "",
 			"itens": [
 				{
 					"id":47 ,
@@ -1351,8 +1351,8 @@
 			"description": "\n\n - Assim que o Orbe tocou em minhas mão e saiu do pedestal, toda a estrutura do lugar começo a desmoronar eu tive que agir rapido e sair daquela situação que poderia ser literalmente esmagadora.\n\nVocê esta no meio da Câmara do imperador, e todo lugar esta caindo, uma FENDA se abriu na parade atrás do trono do imperador e um grande BURACO na parade esquerda ao lado da estátua do deus jaguar, mas ainda não é possivel passa por elas, algumas VIGAS cairam no chão, as saidas estão bloqueadas pelas pedras, seja rapido sua vida esta em rico. Se não tever ideia do que fazer talvez explodir as coisas seja uma solução sensata.",			
 			"isQuick": true,
 			"time": 3,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "desmoronamento.mp3",
+			"resolutionSong": "explosion.mp3",
 			"itens": [
 				{
 					"id":48 ,
@@ -1405,8 +1405,8 @@
 			"description": "\n\n - Pedras voando pela minha cabeça, lugar todo desmoronando. No meio de todo caos escapei através de uma grande abertura improvisada na parede, sem olhar para trás corri o máximo que pude, levando comigo a vontade e a coragem de viver, e maldito Orbe. O Mágnifico palácio foi afundando e retornando ao seu próprio tempo. Um saga de décadas trilhada por vários exploradores foi encerrada naquele dia. Mas um fim de um cápitulo para o início de outro.\n\n - Fui até a Rose que se refugiou em debaixo de algumas árvores, para fugir da destruição. Ela estava bastante supresa por eu ter saído vivo, sem muitos ferimentos.\n\n \"Não precisava também destruír o lugar todo, exibido\"\n\n - Se não sair com grande estílo não tem a menor graça, hahahah\n\n - Eu estou voltando para Londres uma nova aventura esta me chamando, eu estou sentido, eu vou precisa de alguém com experiência para me acompanhar, você conhece alguém?\n\n\"Não precisa pedir duas vezes!\"\n\n\n\n FIM!",			
 			"isQuick": false,
 			"time": 0,
-			"music": "43661__dobroide__20071104-forest-04-binaural.mp3",
-			"resolutionSong": "361167__funwithsound__door-slam.mp3",
+			"music": "ruinas.mp3",
+			"resolutionSong": "",
 			"itens": [],
 			"isEndGame":true
 		}
