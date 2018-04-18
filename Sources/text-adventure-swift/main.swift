@@ -1,6 +1,7 @@
 import Foundation
 import Rainbow
 
+
 func menu(game: GameEngine) -> Bool{
 	print("\nEscolha uma opção")
 	
@@ -86,8 +87,12 @@ func gameMain(){
 			} else {
 				print("Dejesa jogar novamente? [sim/não]")
 				print(" >".red, terminator: " ")
-				let command = readLine()
-				if (command == "não"){
+				var command = readLine()
+				while(!afirmativeAnswer(answer: command!) && !negativeAnswer(answer: command!)){
+					print(" >".red, terminator: " ")
+					command = readLine()
+				}
+				if (negativeAnswer(answer: command!)){
 					myGame.gameExit()
 				} else {
 					gameRunning = false
@@ -100,5 +105,6 @@ func gameMain(){
 	}
 
 }
+
 
 gameMain()

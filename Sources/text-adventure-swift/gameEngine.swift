@@ -88,6 +88,7 @@ class GameEngine {
 		}
 		let loadGameData: Data = loadGameFile!.readDataToEndOfFile()
 		let loadGameJson: JSON = JSON(data: loadGameData)
+		// print(loadGameJson["scenes"])
 
 		for (_, item):(String, JSON) in loadGameJson["inventory"] {
 			self.inventory.addItem(item: Item(
@@ -107,7 +108,8 @@ class GameEngine {
 		}
 		self.game.setCurrentScene(value: loadGameJson["currentScene"].int!)
 		var scenes: [Scene] = []
-		for (_, scene):(String, JSON) in self.json["scenes"] {
+		for (_, scene):(String, JSON) in loadGameJson["scenes"] {
+			// print(scene["description"])
 			var itens: [Item] = []
 			// inside a scene get all the itens
 			for (_, item):(String, JSON) in scene["itens"] {
@@ -133,7 +135,7 @@ class GameEngine {
 				title: scene["title"].string!,
 				description: scene["description"].string!,
 				itens: itens,
-				endGame: scene["isEndGame"].bool!,
+				endGame: scene["endGame"].bool!,
 				isQuick: scene["isQuick"].bool!,
 				time: scene["time"].int!,
 				music: scene["music"].string!,
@@ -521,11 +523,12 @@ class GameEngine {
 				// check if itens was not solved yet
 				if (!itemFromScene!.getResolved()){
 					print(itemFromScene!.getPositiveResult())
-					playSongSync(songName: game.getScene().getResolutionSong())
-					game.setCurrentScene(value: itemFromScene!.getTargetScene())
 					if (!itemFromScene!.getKey()){
 						itemFromScene!.setResolved(state: true)
+						// print(itemFromScene!.getResolved())				
 					}
+					playSongSync(songName: game.getScene().getResolutionSong())
+					game.setCurrentScene(value: itemFromScene!.getTargetScene())
 					return true
 				} else {
 					print("Não tenho mais nada para fazer com isto...")

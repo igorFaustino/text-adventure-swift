@@ -1,0 +1,132 @@
+{
+	"time": 3,
+	"currentScene": 17,
+	"inventory": [
+		{
+			"targetScene": 6,
+			"positiveResult": "",
+			"id": 8,
+			"stocked": true,
+			"resolved": true,
+			"description": "O pergaminho mostra o caminho para o ponto de encontro",
+			"name": "PERGAMINHO",
+			"isInventoryItem": false,
+			"speech": "",
+			"negativeResult": "Melhor não fazer isso com esse pergaminho.",
+			"key": false,
+			"command": "USE PERGAMINHO"
+		},
+		{
+			"targetScene": -1,
+			"positiveResult": "",
+			"id": 19,
+			"stocked": true,
+			"resolved": false,
+			"description": "Ótimo para cutucar as coisas, e encher o saco de pessoas.",
+			"name": "GALHOS",
+			"isInventoryItem": true,
+			"speech": "",
+			"negativeResult": "Não se usa galhos assim.",
+			"key": false,
+			"command": ""
+		},
+		{
+			"targetScene": 15,
+			"positiveResult": "",
+			"id": 41,
+			"stocked": true,
+			"resolved": false,
+			"description": "Não posso perder isso, ele mostra o caminho.",
+			"name": "PERGAMINHO",
+			"isInventoryItem": false,
+			"speech": "",
+			"negativeResult": "Não é dessa forma que se o pergaminho.",
+			"key": true,
+			"command": "USE PERGAMINHO"
+		},
+		{
+			"targetScene": -1,
+			"positiveResult": "",
+			"id": 39,
+			"stocked": true,
+			"resolved": false,
+			"description": "A lança de ouro deve ter um valor inestimável, irei levá-la comigo",
+			"name": "LANÇA",
+			"isInventoryItem": true,
+			"speech": "",
+			"negativeResult": "Não é dessa forma que se usa a lança",
+			"key": false,
+			"command": ""
+		},
+		{
+			"targetScene": -1,
+			"positiveResult": "",
+			"id": 38,
+			"stocked": true,
+			"resolved": false,
+			"description": "Espadas curiosas.",
+			"name": "ESPADAS",
+			"isInventoryItem": true,
+			"speech": "",
+			"negativeResult": "Não é assim que se usa as espadas",
+			"key": false,
+			"command": ""
+		},
+		{
+			"targetScene": -1,
+			"positiveResult": "",
+			"id": 40,
+			"stocked": true,
+			"resolved": false,
+			"description": "Esta arma que mais parece uma lança, com um machado na ponta. Deve ter feito muitos estragos.",
+			"name": "ALABARDA",
+			"isInventoryItem": true,
+			"speech": "",
+			"negativeResult": "Não é dessa forma que se usa a alabarda.",
+			"key": false,
+			"command": ""
+		}
+	],
+	"scenes": [
+		{
+			"endGame": false,
+			"id": 11,
+			"music": "florestaNoite.mp3",
+			"description": "\"Que demora para buscar alguns gravetos, acabei buscando eu mesma, acabou as migalhas de pão e se perdeu pelo caminho? hahahahhah\"\n\n- Estava passeando pela mata, abraçando algumas árvores, aproveitando as coisas que a natureza nos dá, você deveria tentar\n\n\"Está bem, senhor natureba, ande logo com a fogueira, pegue os FOSFOROS na bolsa, e queime logo essas MADEIRAS que eu peguei.\"\n\n- Enquanto eu estava andando pela selva buscando lenha para fogueira, encontrei as ruinas do palácio, amanhã de manhã iremos até la, não é muito longe daqui.",
+			"itens": [
+				{
+					"targetScene": -1,
+					"positiveResult": "A fogueira esta acesa",
+					"id": 24,
+					"stocked": true,
+					"resolved": false,
+					"description": "Ótimo para fazer as coisas esquentar",
+					"name": "FOSFOROS",
+					"isInventoryItem": true,
+					"speech": "",
+					"negativeResult": "Não te ensinaram a usar os fósforos",
+					"key": false,
+					"command": ""
+				},
+				{
+					"targetScene": 12,
+					"positiveResult": "O fogo começou a queimar, enquanto a noite caia sobre seus ombros...",
+					"id": 25,
+					"stocked": false,
+					"resolved": true,
+					"description": "Muito bom para fazer fogueiras.",
+					"name": "MADEIRAS",
+					"isInventoryItem": false,
+					"speech": "",
+					"negativeResult": "Melhor não fazer isso com a madeira.",
+					"key": false,
+					"command": "USE FOSFOROS WITH MADEIRAS"
+				}
+			],
+			"isQuick": false,
+			"resolutionSong": "fogueira.mp3",
+			"time": 0,
+			"title": ""
+		}
+	]
+}
