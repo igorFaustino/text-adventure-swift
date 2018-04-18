@@ -1497,7 +1497,7 @@
 					"name": "TAVERNA",
 					"description": "Que semana estresante, que tal sair para beber?",
 					"negativeResult": "Não tem mistério, apenas use.",
-					"positiveResult": "Você está saindo para beber tequila, beba com responsabilidade sem dar PT.\n\nObrigado.",
+					"positiveResult": "Você está saindo para beber tequila, beba com responsabilidade sem dar PT.\n\n\n\nObrigado.",
 					"speech": "",
 					"targetScene": 27,
 					"isInventoryItem": false,
