@@ -204,44 +204,39 @@ class GameEngine {
 			printHelp()
 		} else if (lowerCommand == "exit"){
 			print("Tem certeza que dejesa sair? [sim/nao]\nTodo o seu progresso não salvo será perdido!")
-			print(" >".red, terminator: " ")
-			var answer = readLine()
-			while (!afirmativeAnswer(answer: answer!) && !negativeAnswer(answer: answer!)) {
+			var answer = Bash.input()
+			while (!afirmativeAnswer(answer: answer) && !negativeAnswer(answer: answer)) {
 				print("Não entendi o que vc está querendo fazer..\n")
 				print("Tem certeza que dejesa sair? [sim/nao]\nTodo o seu progresso não salvo será perdido!")
-				print(" >".red, terminator: " ")
-				answer = readLine()
+				answer = Bash.input()
 			}
-			if (afirmativeAnswer(answer: answer!)){
+			if (afirmativeAnswer(answer: answer)){
 				gameExit()
-			} else if (negativeAnswer(answer: answer!)) {
+			} else if (negativeAnswer(answer: answer)) {
 				return true
 			}
 
 			gameExit()
 		} else if (lowerCommand == "restart") {
 			print("Tem certeza que dejesa reiniciar o jogo? [sim/nao]\nTodo o seu progresso não salvo será perdido!")
-			print(" >".red, terminator: " ")
-			var answer = readLine()
-			while (!afirmativeAnswer(answer: answer!) && !negativeAnswer(answer: answer!)) {
+			var answer = Bash.input()
+			while (!afirmativeAnswer(answer: answer) && !negativeAnswer(answer: answer)) {
 				print("Não entendi o que vc está querendo fazer..\n")
 				print("Tem certeza que dejesa sair? [sim/nao]\nTodo o seu progresso não salvo será perdido!")
-				print(" >".red, terminator: " ")
-				answer = readLine()
+				answer = Bash.input()
 			}
-			if (afirmativeAnswer(answer: answer!)){
+			if (afirmativeAnswer(answer: answer)){
 				return false
-			} else if (negativeAnswer(answer: answer!)) {
+			} else if (negativeAnswer(answer: answer)) {
 				return true
 			}
 		} else if(lowerCommand == "save"){
 			print("Digite um nome para o save ou digite cancelar para cancelar o salvamento")
-			print(" >".red, terminator: " ")
-			let answer = readLine()
+			let answer = Bash.input()
 			if (answer == "cancelar"){
 				return true
 			} else {
-				let path = URL(fileURLWithPath: "./Sources/json/saves/" + answer! + ".json").path
+				let path = URL(fileURLWithPath: "./Sources/json/saves/" + answer + ".json").path
 				saveGame(filePath: path)
 			}
 		} else if (lowerCommand == "radio"){
@@ -270,10 +265,10 @@ class GameEngine {
 	*/
 	func playSong(songName: String, params: [String]) {
 		// if(songName != self.currentSong){
-			let song = Process()
-			song.launchPath = "/usr/bin/mpg123"
-			song.arguments = params + ["-q", "./Sources/songs/" + String(songName)]
-			song.launch()
+			// let song = Process()
+			// song.launchPath = "/usr/bin/mpg123"
+			// song.arguments = params + ["-q", "./Sources/songs/" + String(songName)]
+			// song.launch()
 		// }
 	}
 
@@ -281,11 +276,11 @@ class GameEngine {
 	* play a song and wait finish
 	*/
 	func playSongSync(songName: String) {
-		let song = Process()
-		song.launchPath = "/usr/bin/mpg123"
-		song.arguments = ["-q", "./Sources/songs/" + String(songName)]
-		song.launch()
-		song.waitUntilExit()
+		// let song = Process()
+		// song.launchPath = "/usr/bin/mpg123"
+		// song.arguments = ["-q", "./Sources/songs/" + String(songName)]
+		// song.launch()
+		// song.waitUntilExit()
 	}
 
 	/**
@@ -335,7 +330,7 @@ class GameEngine {
 	func endGame(){
 		printGameOver()
 		print("\n[Digite enter para continuar]")
-		_ = readLine()
+		_ = Bash.input()
 	}
 
 	/**
